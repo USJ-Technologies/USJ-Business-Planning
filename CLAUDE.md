@@ -127,7 +127,7 @@ The three options to present:
 The **whole** Business Planning folder is one repo. Branch `main`.
 
 ```
-https://github.com/USJ-Technologies/USJ-Business-Planning   (private)
+https://github.com/USJ-Technologies/USJ-Business-Planning   (PUBLIC)
 ```
 
 Author is `Bhanu <bhanu@usjtechnologies.com>`, set locally on the repo. Keep it that way.
@@ -141,8 +141,15 @@ not use the worktree-based skills or agent isolation modes on this repo.
 The scope site used to be its own repo inside `04-business-scope-site/`. Its 5 commits were
 kept — `git log --follow` still tracks files across the move.
 
-**Keep this repo private.** It holds internal strategy, and the salary / role /
-responsibility sections are still to be added.
+**This repo is public.** It was made public on 18 Aug 2026 so Vercel could deploy it on
+the Hobby plan, which will not build a private org-owned repo.
+
+Everything here is world-readable, including `CLAUDE.md` and the cost figures. Before the
+salary numbers and the responsibility / blame section are written, decide where they go —
+they should **not** land in this repo while it is public. Options: keep them in a separate
+private repo, or make this one private again and pay for Vercel Pro.
+
+A password on the Vercel site does **not** protect this repo. Different thing entirely.
 
 ## The scope website (`04-business-scope-site/`)
 
@@ -161,11 +168,16 @@ link in `<nav class="nav">`. Nothing else needs changing — the JS picks up sli
 
 ### Hosting
 
-Deployed to Vercel under the existing account (team `harrys-projects-93f08a21`), project `usj-group`.
-`vercel.json` sets `X-Robots-Tag: noindex, nofollow, noarchive` and `robots.txt` disallows everything —
-this is an internal document and must stay out of search results.
+Vercel, team `harrys-projects-93f08a21`, project **`usj-business-planning`**
+(`prj_SBzcf16YRyaakLtKBf7wyqdwTQQ8`), linked to the GitHub repo.
 
-**Note:** the first deploy went out missing `index.html`. Redeploy from here:
+- **Root Directory is `04-business-scope-site`** — the repo root is the whole planning
+  folder, so without this Vercel finds no `index.html`.
+- Pushing to `main` redeploys automatically.
+- `vercel.json` sets `X-Robots-Tag: noindex, nofollow, noarchive` and `robots.txt`
+  disallows everything, so it stays out of search results.
+
+Manual redeploy, if ever needed:
 
 ```bash
 cd "04-business-scope-site"
