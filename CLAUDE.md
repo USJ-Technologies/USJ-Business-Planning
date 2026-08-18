@@ -135,6 +135,9 @@ Author is `Bhanu <bhanu@usjtechnologies.com>`, set locally on the repo. Keep it 
 **One branch only — `main`.** No feature branches, no `master`. Commit straight to `main`
 and push. Do not create a branch before committing.
 
+**One worktree only.** Work in this folder directly. Do not create git worktrees, and do
+not use the worktree-based skills or agent isolation modes on this repo.
+
 The scope site used to be its own repo inside `04-business-scope-site/`. Its 5 commits were
 kept — `git log --follow` still tracks files across the move.
 
