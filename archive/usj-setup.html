@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>USJ Group — Domains, Email &amp; Socials</title>
+<style>
+:root{
+  --bg:#fcfcfb; --card:#fff; --ink:#16181d; --ink2:#4a5160; --ink3:#7c8494;
+  --line:#e5e7ed; --line2:#f0f1f5;
+  --navy:#1B3A6B; --blue:#2563C9; --green:#1F7A4D; --purple:#6B3FA0;
+  --c1:#2563C9; --c2:#1F7A4D;
+  --goodbg:#EDF7F1; --warnbg:#FDF6E7; --warn:#9A6206;
+  --sh:0 1px 2px rgba(16,20,28,.05),0 8px 24px -14px rgba(16,20,28,.16);
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#1a1a19; --card:#232322; --ink:#f2f2ef; --ink2:#b9bcc2; --ink3:#8b9098;
+  --line:#353634; --line2:#2c2d2b;
+  --navy:#9CC4FA; --blue:#4E8AEA; --green:#3FB07A; --purple:#B478E8;
+  --c1:#4E8AEA; --c2:#2FA46E;
+  --goodbg:#17281f; --warnbg:#2e2716; --warn:#E3B04B;
+  --sh:0 1px 2px rgba(0,0,0,.4),0 8px 24px -14px rgba(0,0,0,.6);}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+.w{max-width:960px;margin:0 auto;padding:44px 24px 70px}
+h1{font-size:29px;margin:0 0 4px;letter-spacing:-.025em}
+h2{font-size:13px;margin:0 0 14px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink3);font-weight:700}
+.sub{color:var(--ink3);font-size:14.5px;margin:0}
+header{margin-bottom:34px}
+section{margin:0 0 40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px;box-shadow:var(--sh)}
+
+/* headline */
+.head{display:grid;grid-template-columns:1.35fr 1fr;gap:14px}
+.big{background:var(--card);border:2px solid var(--blue);border-radius:13px;padding:22px;box-shadow:var(--sh);display:flex;flex-direction:column}
+.big .k{font-size:12px;font-weight:700;color:var(--ink3);letter-spacing:.05em;text-transform:uppercase}
+.big .v{font-size:46px;font-weight:700;letter-spacing:-.04em;line-height:1;margin:8px 0 4px;font-variant-numeric:tabular-nums}
+.big .s{font-size:13.5px;color:var(--ink3)}
+.mini{display:grid;gap:14px}
+.m{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;box-shadow:var(--sh)}
+.m .k{font-size:11.5px;font-weight:600;color:var(--ink3)}
+.m .v{font-size:23px;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums;margin-top:2px}
+
+/* split bar */
+.split{display:flex;height:34px;border-radius:6px;overflow:hidden;margin-top:auto;padding-top:18px;box-sizing:content-box}
+.split div{display:flex;align-items:center;padding:0 12px;font-size:12.5px;font-weight:700;color:#fff;white-space:nowrap}
+.split div+div{margin-left:2px}
+
+/* tree */
+.root{background:var(--card);border:2px solid var(--navy);border-radius:13px;padding:15px;text-align:center;box-shadow:var(--sh)}
+.root b{font-size:18px;letter-spacing:-.01em}
+.root .d{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--blue);margin-top:3px}
+.stem{height:20px;width:0;border-left:2px solid var(--line);margin:0 auto}
+.branch{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:13px}
+.u{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--u);border-radius:12px;padding:15px;box-shadow:var(--sh)}
+.u .t{font-weight:700;font-size:15px;color:var(--u);margin-bottom:9px}
+.u dl{margin:0;font-size:12.5px}
+.u dt{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-top:9px}
+.u dd{margin:2px 0 0;font-family:ui-monospace,Menlo,monospace;color:var(--ink2);word-break:break-all;font-size:12.5px}
+.u .sv{margin:11px 0 0;padding:9px 0 0;border-top:1px solid var(--line2);font-size:12.5px;color:var(--ink3);line-height:1.5}
+.tag{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:4px;vertical-align:1px;margin-left:5px}
+.tag.h{background:var(--goodbg);color:var(--green)}
+.tag.b{background:var(--warnbg);color:var(--warn)}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);padding:0 10px 8px;border-bottom:1px solid var(--line)}
+td{padding:10px;border-bottom:1px solid var(--line2);color:var(--ink2)}
+td:first-child,th:first-child{padding-left:0}
+td:last-child,th:last-child{padding-right:0}
+.n{text-align:right;font-variant-numeric:tabular-nums}
+td b{color:var(--ink);font-weight:600}
+tr.tot td{border-top:2px solid var(--line);border-bottom:0;font-weight:700;color:var(--ink)}
+.mono{font-family:ui-monospace,Menlo,monospace;font-size:13px}
+
+/* socials */
+.soc{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:13px}
+.sc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px;box-shadow:var(--sh);border-left:4px solid var(--u)}
+.sc .t{font-weight:700;font-size:14px;color:var(--u);margin-bottom:10px}
+.sc ul{list-style:none;margin:0;padding:0}
+.sc li{display:flex;align-items:center;gap:9px;padding:4px 0;font-size:12.5px;font-family:ui-monospace,Menlo,monospace;color:var(--ink2)}
+.ic{width:19px;height:19px;border-radius:5px;flex:none;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:#fff;font-family:inherit}
+.ig{background:linear-gradient(45deg,#F09433,#DC2743,#BC1888)}
+.fb{background:#1877F2}.xx{background:#111}.yt{background:#FF0000}.li{background:#0A66C2}
+@media(prefers-color-scheme:dark){.xx{background:#5c5c5c}}
+
+.note{border-radius:11px;padding:14px 16px;font-size:14px;margin-top:14px;border:1px solid}
+.note.w{background:var(--warnbg);border-color:rgba(154,98,6,.28)}
+.note.g{background:var(--goodbg);border-color:rgba(31,122,77,.28)}
+.note b{color:var(--ink)}
+.note ul{margin:6px 0 0;padding-left:17px}
+.note li{margin:3px 0;color:var(--ink2)}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.st{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px;box-shadow:var(--sh)}
+.st .n0{width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;font-size:11.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.st p{margin:0;font-size:13.5px;color:var(--ink2)}
+.st b{color:var(--ink)}
+@media(max-width:640px){.head{grid-template-columns:1fr}}
+footer{border-top:1px solid var(--line);margin-top:44px;padding-top:16px;font-size:12px;color:var(--ink3)}
+@media print{body{background:#fff}.card,.u,.sc,.st,.m,.big,.root{box-shadow:none}section{page-break-inside:avoid}}
+</style>
+</head>
+<body><div class="w">
+
+<header>
+  <h1>USJ Group — Domains, Email &amp; Socials</h1>
+  <p class="sub">What it costs to keep three businesses online, every year. Prices August 2026.</p>
+  <p class="sub" style="margin-top:4px">Bhanu and Jitesh continue on their existing <span class="mono">@usjtechnologies.com</span> addresses — not included below.</p>
+</header>
+
+<section>
+  <div class="head">
+    <div class="big">
+      <div class="k">Total per year</div>
+      <div class="v">₹10,573</div>
+      <div class="s">4 domains + 3 Google Workspace mailboxes + 13 social accounts</div>
+      <div class="split">
+        <div style="background:var(--c1);width:60%">Domains ₹6,367</div>
+        <div style="background:var(--c2);width:40%">Email ₹4,206</div>
+      </div>
+    </div>
+    <div class="mini">
+      <div class="m"><div class="k">Per month</div><div class="v">₹881</div></div>
+      <div class="m"><div class="k">Pay today — 2 new domains</div><div class="v">₹1,711</div></div>
+      <div class="m"><div class="k">Social media accounts</div><div class="v">₹0</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STRUCTURE -->
+<section>
+  <h2>1 · Structure</h2>
+  <div class="root">
+    <b>USJ GROUP</b>
+    <div class="d">usjgroup.in <span class="tag b">Buy</span></div>
+  </div>
+  <div class="stem"></div>
+  <div class="branch">
+    <div class="u" style="--u:var(--navy)">
+      <div class="t">ChaloKumbh</div>
+      <dl>
+        <dt>Domain</dt><dd>chalokumbh.com <span class="tag h">Owned</span></dd>
+        <dt>Email</dt><dd>chalokumbh@usjgroup.in</dd>
+      </dl>
+      <div class="sv">Online Pooja · Vedanz water &amp; Ganga Jal · Doon Travelers · USJ Stays</div>
+    </div>
+    <div class="u" style="--u:var(--green)">
+      <div class="t">USJ Electronics</div>
+      <dl>
+        <dt>Domain</dt><dd>usjelectronics.com <span class="tag b">Buy</span></dd>
+        <dt>Email</dt><dd>usjelectronics@usjgroup.in</dd>
+      </dl>
+      <div class="sv">Consumer electronics · Accessories · Retail &amp; bulk supply</div>
+    </div>
+    <div class="u" style="--u:var(--purple)">
+      <div class="t">USJ Technologies</div>
+      <dl>
+        <dt>Domain</dt><dd>usjtechnologies.com <span class="tag h">Owned</span></dd>
+        <dt>Email</dt><dd>usjtechnologies@usjgroup.in</dd>
+      </dl>
+      <div class="sv">IT services · Software &amp; apps · GeM / tender supply</div>
+    </div>
+  </div>
+</section>
+
+<!-- DOMAINS -->
+<section>
+  <h2>2 · Domains — ₹6,367 / year</h2>
+  <div class="card">
+    <table>
+      <thead><tr><th>Domain</th><th>Status</th><th class="n">Renewal</th><th class="n">+GST</th><th class="n">Total</th></tr></thead>
+      <tbody>
+        <tr><td class="mono"><b>usjgroup.in</b></td><td><span class="tag b">Buy</span></td><td class="n">899</td><td class="n">162</td><td class="n"><b>1,061</b></td></tr>
+        <tr><td class="mono"><b>chalokumbh.com</b></td><td><span class="tag h">Owned</span></td><td class="n">1,499</td><td class="n">270</td><td class="n"><b>1,769</b></td></tr>
+        <tr><td class="mono"><b>usjelectronics.com</b></td><td><span class="tag b">Buy</span></td><td class="n">1,499</td><td class="n">270</td><td class="n"><b>1,769</b></td></tr>
+        <tr><td class="mono"><b>usjtechnologies.com</b></td><td><span class="tag h">Owned</span></td><td class="n">1,499</td><td class="n">270</td><td class="n"><b>1,769</b></td></tr>
+        <tr class="tot"><td>4 domains</td><td></td><td class="n">5,396</td><td class="n">971</td><td class="n">6,367</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note w">
+    <b>⚠ ₹550 and ₹900 were first-year offer prices.</b>
+    <ul>
+      <li>From year 2 they cost ₹899 and ₹1,499 — nearly triple.</li>
+      <li>The two domains we already own also renew every year — ₹1,769 each. Not counted before.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- EMAIL -->
+<section>
+  <h2>3 · Email — Google Workspace Base, ₹99/user</h2>
+  <div class="card">
+    <table>
+      <thead><tr><th>Mailbox</th><th>Used by</th><th class="n">₹/month</th><th class="n">₹/year</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">chalokumbh@usjgroup.in</td><td>ChaloKumbh</td><td class="n">99</td><td class="n">1,188</td></tr>
+        <tr><td class="mono">usjelectronics@usjgroup.in</td><td>USJ Electronics</td><td class="n">99</td><td class="n">1,188</td></tr>
+        <tr><td class="mono">usjtechnologies@usjgroup.in</td><td>USJ Technologies</td><td class="n">99</td><td class="n">1,188</td></tr>
+        <tr class="tot"><td>3 mailboxes</td><td></td><td class="n">297</td><td class="n">3,564</td></tr>
+        <tr class="tot"><td>+ GST 18%</td><td></td><td class="n"></td><td class="n">642</td></tr>
+        <tr class="tot"><td>Payable</td><td></td><td class="n"></td><td class="n">4,206</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note g">
+    <b>What ₹99 per user gets you:</b> Gmail on your own domain · 20 GB pooled storage per person · Google Meet up to 100 people · Full apps — Gmail, Calendar, Meet, Chat, Drive, Docs, Sheets, Slides, Forms, Sites · Security and management controls · Up to 20 users.
+  </div>
+  <div class="note w">
+    <b>⚠ Bhanu and Jitesh are not on this list.</b> They keep using
+    <span class="mono">bhanu@usjtechnologies.com</span> and <span class="mono">jitesh@usjtechnologies.com</span>
+    as they do today. Only the three business mailboxes are new.
+  </div>
+</section>
+
+<!-- SOCIALS -->
+<section>
+  <h2>4 · Social accounts — ₹0</h2>
+  <div class="soc">
+    <div class="sc" style="--u:var(--navy)">
+      <div class="t">ChaloKumbh</div>
+      <ul>
+        <li><i class="ic ig">IG</i>@chalokumbh</li>
+        <li><i class="ic fb">f</i>@chalokumbh</li>
+        <li><i class="ic xx">X</i>@chalokumbh</li>
+        <li><i class="ic yt">▶</i>@chalokumbh</li>
+      </ul>
+    </div>
+    <div class="sc" style="--u:var(--green)">
+      <div class="t">USJ Electronics</div>
+      <ul>
+        <li><i class="ic ig">IG</i>@usjelectronics</li>
+        <li><i class="ic fb">f</i>@usjelectronics</li>
+        <li><i class="ic xx">X</i>@usjelectronics</li>
+        <li><i class="ic yt">▶</i>@usjelectronics</li>
+      </ul>
+    </div>
+    <div class="sc" style="--u:var(--purple)">
+      <div class="t">USJ Technologies</div>
+      <ul>
+        <li><i class="ic ig">IG</i>@usjtechnologies</li>
+        <li><i class="ic fb">f</i>@usjtechnologies</li>
+        <li><i class="ic xx">X</i>@usjtechnologies</li>
+        <li><i class="ic yt">▶</i>@usjtechnologies</li>
+      </ul>
+    </div>
+    <div class="sc" style="--u:var(--blue)">
+      <div class="t">USJ Group — parent</div>
+      <ul>
+        <li><i class="ic li">in</i>USJ Group</li>
+      </ul>
+      <div style="font-size:12.5px;color:var(--ink3);margin-top:9px;line-height:1.5">One LinkedIn page for the whole group. Shows updates, achievements and news from every business.</div>
+    </div>
+  </div>
+  <div class="note g">
+    <b>13 accounts. All free.</b> Each business signs up with its own <span class="mono">@usjgroup.in</span> mailbox, so nothing is tied to a personal Gmail. Book the usernames now even if posting starts later — names get taken.
+  </div>
+</section>
+
+<!-- STEPS -->
+<section>
+  <h2>5 · What to do</h2>
+  <div class="steps">
+    <div class="st"><div class="n0">1</div><p><b>Buy usjgroup.in and usjelectronics.com.</b> ₹1,711. Register 3 years if possible.</p></div>
+    <div class="st"><div class="n0">2</div><p><b>Turn on auto-renew</b> for all four domains. Add a calendar reminder as backup.</p></div>
+    <div class="st"><div class="n0">3</div><p><b>Set up Google Workspace</b> on usjgroup.in. Create the mailboxes.</p></div>
+    <div class="st"><div class="n0">4</div><p><b>Book all 13 social usernames</b> using the new business mailboxes.</p></div>
+    <div class="st"><div class="n0">5</div><p><b>Put the group page live</b> at usjgroup.in linking to all three businesses.</p></div>
+    <div class="st"><div class="n0">6</div><p><b>Review this page yearly</b> in the renewal month.</p></div>
+  </div>
+</section>
+
+<footer>
+  Domain renewals: Hostinger India — .in ₹899/yr, .com ₹1,499/yr. Google Workspace <b>Base</b> plan: ₹99 per user per month, from Google's own India pricing page — 20 GB pooled storage per person, maximum 20 users. All totals add 18% GST. Website, hosting and social media accounts cost nothing extra and are excluded by design.
+</footer>
+
+</div></body></html>

@@ -1,36 +1,30 @@
-# USJ Group — Business Scope
+# Business Planning
 
-A single-page document setting out what each USJ Group business can do,
-how it works, what it needs, and how it gets customers.
+Everything made so far for the USJ Group proposals to Uday sir.
 
-## Two modes
+Open `CLAUDE.md` first — it has the full background, the decisions already made,
+and what is still pending.
 
-- **Read** — sidebar navigation, scroll through
-- **Present** — full-screen slides, arrow keys to move, Esc to exit
+## What is where
 
-## Contents
+```
+01-business-setup/        Domains, emails, social — costs. HTML + PDF.
+02-whats-next/            The plan after approval. 8 steps + 3 hires. HTML + PDF.
+03-explainer-video/       The explainer video, its source, teleprompter, narration.
+04-business-scope-site/   The scope website. Git repo. ← main active work
+assets/                   Logo files.
+archive/                  Older drafts. Reference only.
+```
 
-- The group — three businesses
-- Where we are today
-- **ChaloKumbh** — Online Pooja, Vedanz, Doon Travellers, USJ Stays
-- USJ Electronics *(to come)*
-- USJ Technologies *(to come)*
+## Quick start
 
-## Files
+```bash
+# open the scope website
+open "04-business-scope-site/index.html"
 
-| File | Purpose |
-|---|---|
-| `index.html` | The whole document. Self-contained — no build, no dependencies |
-| `logo-mark.png` | USJ monogram, transparent background |
-| `vercel.json` | Hosting config. Sets noindex headers |
-| `robots.txt` | Keeps the document out of search engines |
+# open the PDFs
+open "01-business-setup/USJ-Group-Business-Setup.pdf"
+open "02-whats-next/USJ-Group-Whats-Next.pdf"
+```
 
-## Running it
-
-Open `index.html` in any browser. Nothing to install.
-
-## Note
-
-This is an internal working document. The `noindex` headers and `robots.txt`
-keep it out of search results. Remove them only if the content is meant to
-be found publicly.
+Nothing needs installing. Every HTML file is self-contained.

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>USJ Group — What's Next</title>
+<style>
+:root{
+  --cream:#F0EEE6; --white:#fff;
+  --ink:#191919; --ink2:#5A5852; --ink3:#8C8985;
+  --line:#E2DFD5; --line2:#EDEAE1;
+  --clay:#CC785C; --kraft:#D4A27F; --manilla:#EBDBBC;
+  --navy:#3F5A7D; --moss:#5C7052; --plum:#7A5C7D; --sand:#8A7350;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--cream);color:var(--ink);
+ font:26px/1.55 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,sans-serif;
+ -webkit-font-smoothing:antialiased}
+.serif{font-family:ui-serif,Georgia,"Iowan Old Style",serif}
+
+.deck{position:relative;width:1920px;height:1080px}
+.s{position:absolute;inset:0;padding:104px 132px;opacity:0;pointer-events:none;
+   display:flex;flex-direction:column;justify-content:center}
+.s.on{opacity:1}
+.s.out{opacity:0;transition:opacity .5s ease}
+.s.on{transition:opacity .6s ease}
+
+/* animated element base */
+.a{opacity:0;transform:translateY(18px)}
+.s.on .a{animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards;animation-delay:calc(var(--i,0)*.11s + .15s)}
+@keyframes rise{to{opacity:1;transform:none}}
+.aw{opacity:0;transform:scaleX(0);transform-origin:left}
+.s.on .aw{animation:wipe .8s cubic-bezier(.2,.7,.3,1) forwards;animation-delay:calc(var(--i,0)*.11s + .15s)}
+@keyframes wipe{to{opacity:1;transform:none}}
+
+/* typography */
+.eyebrow{font-family:ui-serif,Georgia,serif;font-size:22px;letter-spacing:.24em;text-transform:uppercase;
+ color:var(--clay);font-style:italic;margin-bottom:26px}
+h1{font-family:ui-serif,Georgia,serif;font-size:118px;line-height:1.02;letter-spacing:-.03em;font-weight:400}
+h2{font-family:ui-serif,Georgia,serif;font-size:74px;line-height:1.08;letter-spacing:-.025em;font-weight:400;margin-bottom:56px}
+.sub{font-size:30px;color:var(--ink3);margin-top:34px;max-width:1000px}
+.mono{font-family:ui-monospace,Menlo,monospace}
+
+/* cover */
+.mark{width:76px;height:76px;border-radius:50%;background:var(--clay);margin-bottom:52px}
+.hr{height:1px;background:var(--line);margin:44px 0 0;max-width:900px}
+
+/* stages */
+.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.stage{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:38px;position:relative}
+.stage:before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:var(--k);border-radius:8px 8px 0 0}
+.stage .sh{font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
+.stage .st{font-family:ui-serif,Georgia,serif;font-size:40px;color:var(--k);margin-top:8px}
+.stage ol{list-style:none;counter-reset:c var(--start);margin-top:30px;padding-top:26px;border-top:1px solid var(--line2)}
+.stage li{counter-increment:c;font-size:24px;color:var(--ink2);padding:11px 0 11px 48px;position:relative;line-height:1.4}
+.stage li:before{content:counter(c);position:absolute;left:0;top:11px;font-family:ui-serif,Georgia,serif;font-size:24px;color:var(--k)}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:26px}
+th{text-align:left;font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);
+ font-weight:600;padding:0 22px 20px;border-bottom:2px solid var(--ink)}
+td{padding:26px 22px;border-bottom:1px solid var(--line);color:var(--ink2);vertical-align:top}
+th:first-child,td:first-child{padding-left:0}
+th:last-child,td:last-child{padding-right:0}
+td b{color:var(--ink);font-weight:600}
+td.st{width:78px;font-family:ui-serif,Georgia,serif;font-size:34px;color:var(--clay);padding-top:22px}
+td.mono{font-size:23px}
+.r{text-align:right}
+.tag{display:inline-block;font-size:17px;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;
+ border-radius:5px;background:var(--manilla);color:#6B5427;white-space:nowrap}
+.tag.now{background:var(--clay);color:#fff}
+
+/* campaigns */
+.camp{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.cp{background:var(--white);border:1px solid var(--line);border-left:5px solid var(--k);border-radius:8px;padding:34px}
+.cp .t{font-family:ui-serif,Georgia,serif;font-size:38px;color:var(--k)}
+.cp .s2{font-size:20px;color:var(--ink3);margin-top:6px}
+.cp ul{list-style:none;margin-top:24px;padding-top:20px;border-top:1px solid var(--line2)}
+.cp li{font-size:23px;color:var(--ink2);padding:7px 0 7px 26px;position:relative}
+.cp li:before{content:"";position:absolute;left:0;top:19px;width:9px;height:9px;border-radius:50%;background:var(--k)}
+
+/* roles */
+.roles{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.role{background:var(--white);border:1px solid var(--line);border-top:5px solid var(--k);border-radius:8px;padding:36px}
+.role .rn{font-family:ui-serif,Georgia,serif;font-size:40px;color:var(--k);line-height:1.1}
+.role dl{margin-top:28px;padding-top:24px;border-top:1px solid var(--line2)}
+.role dt{font-size:17px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-top:22px}
+.role dt:first-child{margin-top:0}
+.role dd{margin-top:6px;font-size:24px;color:var(--ink2)}
+
+/* focus */
+.focus{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--ink)}
+.focus div{padding:48px 48px 0 0}
+.focus div+div{border-left:1px solid var(--line);padding-left:48px}
+.focus span{display:block;font-size:19px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:20px}
+.focus b{font-family:ui-serif,Georgia,serif;font-size:62px;font-weight:400;letter-spacing:-.025em;line-height:1.1}
+
+/* end */
+.end{align-items:center;text-align:center;justify-content:center}
+.end h1{font-size:96px}
+
+/* progress */
+.bar{position:absolute;left:0;bottom:0;height:4px;background:var(--clay);width:0;z-index:9}
+.pg{position:absolute;right:52px;bottom:40px;font-size:20px;color:var(--ink3);letter-spacing:.12em;z-index:9}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<!-- 1 -->
+<section class="s" data-t="5000">
+  <div class="mark a" style="--i:0"></div>
+  <h1 class="a" style="--i:1">USJ Group<br>&mdash; what&rsquo;s next</h1>
+  <div class="hr a" style="--i:3"></div>
+  <p class="sub a" style="--i:4">The immediate plan, once the business setup proposal is approved.</p>
+</section>
+
+<!-- 2 -->
+<section class="s" data-t="9000">
+  <p class="eyebrow a" style="--i:0">One</p>
+  <h2 class="a" style="--i:1">The sequence</h2>
+  <div class="stages">
+    <div class="stage a" style="--k:var(--sand);--start:0;--i:2">
+      <div class="sh">Stage one</div><div class="st">Foundation</div>
+      <ol><li>Buy the domains</li><li>Shift the e-commerce site to usjelectronics.com</li><li>Create three business mailboxes on usjgroup.in</li></ol>
+    </div>
+    <div class="stage a" style="--k:var(--moss);--start:3;--i:4">
+      <div class="sh">Stage two</div><div class="st">Presence</div>
+      <ol><li>Create USJ Electronics social accounts</li><li>Professional posts on LinkedIn</li><li>Regular posts on USJ Electronics channels</li></ol>
+    </div>
+    <div class="stage a" style="--k:var(--clay);--start:6;--i:6">
+      <div class="sh">Stage three</div><div class="st">Reach</div>
+      <ol><li>Run ad campaigns</li><li>Post hiring ads and hire</li></ol>
+    </div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="s" data-t="8500">
+  <p class="eyebrow a" style="--i:0">Two</p>
+  <h2 class="a" style="--i:1">Foundation</h2>
+  <table>
+    <thead><tr class="a" style="--i:2"><th></th><th>Task</th><th>Detail</th><th class="r">When</th></tr></thead>
+    <tbody>
+      <tr class="a" style="--i:4"><td class="st">01</td><td><b>Buy the domains</b></td>
+        <td class="mono">usjgroup.in<br>usjelectronics.com</td><td class="r"><span class="tag now">Day one</span></td></tr>
+      <tr class="a" style="--i:6"><td class="st">02</td><td><b>Shift the e-commerce website</b></td>
+        <td>Move the existing store onto <span class="mono">usjelectronics.com</span>, with redirects so nothing breaks</td><td class="r"><span class="tag">Week one</span></td></tr>
+      <tr class="a" style="--i:8"><td class="st">03</td><td><b>Create the business mailboxes</b></td>
+        <td class="mono">chalokumbh@usjgroup.in<br>usjelectronics@usjgroup.in<br>usjtechnologies@usjgroup.in</td><td class="r"><span class="tag">Week one</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 4 -->
+<section class="s" data-t="8500">
+  <p class="eyebrow a" style="--i:0">Three</p>
+  <h2 class="a" style="--i:1">Presence</h2>
+  <table>
+    <thead><tr class="a" style="--i:2"><th></th><th>Task</th><th>Detail</th><th class="r">When</th></tr></thead>
+    <tbody>
+      <tr class="a" style="--i:4"><td class="st">04</td><td><b>Create social accounts</b></td>
+        <td>Instagram, Facebook, X and YouTube for USJ Electronics &mdash; opened with <span class="mono">usjelectronics@usjgroup.in</span></td><td class="r"><span class="tag">Week two</span></td></tr>
+      <tr class="a" style="--i:6"><td class="st">05</td><td><b>Professional posts on LinkedIn</b></td>
+        <td>USJ Group page &mdash; group updates, certifications, work and hiring</td><td class="r"><span class="tag">Week two</span></td></tr>
+      <tr class="a" style="--i:8"><td class="st">06</td><td><b>Posts on USJ Electronics channels</b></td>
+        <td>Products, pricing, offers and stock &mdash; organic, before any spend</td><td class="r"><span class="tag">Week two</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 5 -->
+<section class="s" data-t="9500">
+  <p class="eyebrow a" style="--i:0">Four</p>
+  <h2 class="a" style="--i:1">Campaigns</h2>
+  <div class="camp">
+    <div class="cp a" style="--k:var(--moss);--i:2"><div class="t">USJ Electronics</div><div class="s2">Paid ads on Instagram and Facebook</div>
+      <ul><li>USB and pen drive products</li><li>Retail offers and price hooks</li><li>Bulk and tender supply, aimed at businesses</li></ul></div>
+    <div class="cp a" style="--k:var(--navy);--i:4"><div class="t">ChaloKumbh</div><div class="s2">Paid ads on Instagram and Facebook</div>
+      <ul><li>Online Pooja</li><li>Vedanz &mdash; drinking water and Ganga Jal</li><li>Doon Travelers &mdash; packages and tours</li></ul></div>
+    <div class="cp a" style="--k:var(--clay);--i:6"><div class="t">Reel contest</div><div class="s2">Paid promotion</div>
+      <ul><li>Prizes and a paid internship as the hook</li><li>Draws in on-location creators and editors</li><li>Doubles as a hiring pipeline</li></ul></div>
+    <div class="cp a" style="--k:var(--sand);--i:8"><div class="t">Hiring ads</div><div class="s2">LinkedIn and social channels</div>
+      <ul><li>Three open roles</li><li>Posted from the USJ Group LinkedIn page</li><li>Applications tracked on the careers platform</li></ul></div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="s" data-t="9500">
+  <p class="eyebrow a" style="--i:0">Five</p>
+  <h2 class="a" style="--i:1">Hiring</h2>
+  <div class="roles">
+    <div class="role a" style="--k:var(--moss);--i:2"><div class="rn">Marketing<br>Specialist</div>
+      <dl><dt>Experience</dt><dd>1&ndash;2 years</dd><dt>Location</dt><dd>Hyderabad or Uttarakhand</dd>
+      <dt>Focus</dt><dd>Campaigns, targeting, spend and reporting</dd></dl></div>
+    <div class="role a" style="--k:var(--navy);--i:4"><div class="rn">Content<br>Creator</div>
+      <dl><dt>Experience</dt><dd>Open</dd><dt>Location</dt><dd>Haridwar</dd>
+      <dt>Focus</dt><dd>On-location content &mdash; temples, travel, poojas, Kumbh</dd></dl></div>
+    <div class="role a" style="--k:var(--plum);--i:6"><div class="rn">Video<br>Editor</div>
+      <dl><dt>Experience</dt><dd>Open</dd><dt>Location</dt><dd>Hyderabad or Uttarakhand</dd>
+      <dt>Focus</dt><dd>Reels, product videos and campaign creatives</dd></dl></div>
+  </div>
+  <p class="sub a" style="--i:8">Post early, monitor daily, hire fast &mdash; content work cannot scale without them.</p>
+</section>
+
+<!-- 7 -->
+<section class="s" data-t="8000">
+  <p class="eyebrow a" style="--i:0">Six</p>
+  <h2 class="a" style="--i:1">Then, full focus</h2>
+  <div class="focus">
+    <div class="a" style="--i:3"><span>One</span><b>Marketing</b></div>
+    <div class="a" style="--i:5"><span>Two</span><b>Content creation</b></div>
+    <div class="a" style="--i:7"><span>Three</span><b>Digital presence</b></div>
+  </div>
+  <p class="sub a" style="--i:9">Everything before this point exists to make these three possible.</p>
+</section>
+
+<!-- 8 -->
+<section class="s end" data-t="5500">
+  <div class="mark a" style="--i:0;margin:0 auto 44px"></div>
+  <h1 class="a" style="--i:1">One group.<br>Many businesses.</h1>
+  <p class="sub a" style="--i:3" style2="">USJ Group &middot; August 2026</p>
+</section>
+
+<div class="bar" id="bar"></div>
+<div class="pg" id="pg"></div>
+</div>
+
+<script>
+const slides=[...document.querySelectorAll('.s')];
+const bar=document.getElementById('bar'), pg=document.getElementById('pg');
+const times=slides.map(s=>+s.dataset.t);
+const total=times.reduce((a,b)=>a+b,0);
+let i=0, elapsed=0, t0=null;
+
+function show(n){
+  slides.forEach((s,k)=>{ s.classList.toggle('on', k===n); s.classList.toggle('out', k!==n); });
+  pg.textContent = String(n+1).padStart(2,'0') + ' / ' + String(slides.length).padStart(2,'0');
+}
+function tick(ts){
+  if(t0===null) t0=ts;
+  const p=Math.min((ts-t0)/total,1);
+  bar.style.width=(p*1920)+'px';
+  if(p<1) requestAnimationFrame(tick);
+}
+function run(){
+  show(0); requestAnimationFrame(tick);
+  let acc=0;
+  times.forEach((t,k)=>{ if(k===0) return; acc+=times[k-1]; setTimeout(()=>show(k), acc); });
+  window.__done = total;
+}
+window.addEventListener('load', ()=>setTimeout(run, 300));
+</script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1024">
+<title>USJ Group — Business Setup</title>
+<style>
+:root{
+  --cream:#F0EEE6; --white:#fff;
+  --ink:#191919; --ink2:#5A5852; --ink3:#8C8985;
+  --line:#E2DFD5; --line2:#EDEAE1;
+  --clay:#CC785C; --kraft:#D4A27F; --manilla:#EBDBBC;
+  --navy:#3F5A7D; --moss:#5C7052; --plum:#7A5C7D; --sand:#8A7350;
+}
+*{box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--cream);color:var(--ink);min-width:1024px;
+ font:16px/1.6 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,sans-serif}
+.slide{max-width:920px;margin:0 auto;padding:70px 52px;border-bottom:1px solid var(--line)}
+.slide:last-of-type{border-bottom:0}
+.num{font-family:ui-serif,Georgia,serif;font-size:13px;letter-spacing:.14em;color:var(--clay);
+ text-transform:uppercase;margin:0 0 16px;font-style:italic}
+h1{font-family:ui-serif,Georgia,serif;font-size:46px;line-height:1.1;letter-spacing:-.025em;margin:0;font-weight:400}
+h2{font-family:ui-serif,Georgia,serif;font-size:32px;line-height:1.15;letter-spacing:-.015em;margin:0 0 34px;font-weight:400}
+.mono{font-family:ui-monospace,Menlo,monospace}
+
+/* cover */
+.cover{padding-top:92px;padding-bottom:78px;border-bottom:1px solid var(--line)}
+.mark{width:38px;height:38px;border-radius:50%;background:var(--clay);margin-bottom:26px}
+.meta{display:flex;gap:36px;margin-top:32px;padding-top:22px;border-top:1px solid var(--line);flex-wrap:wrap}
+.meta div span{display:block;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink3);margin-bottom:4px}
+.meta div b{font-family:ui-serif,Georgia,serif;font-size:18px;font-weight:400}
+
+/* structure */
+.parent{background:var(--white);border:1px solid var(--line);border-radius:4px;padding:20px;text-align:center;max-width:340px;margin:0 auto}
+.parent b{font-family:ui-serif,Georgia,serif;font-size:23px;font-weight:400;display:block}
+.parent .d{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--clay);margin-top:5px}
+.drop{width:1px;height:26px;background:var(--line);margin:0 auto}
+.rail{height:1px;background:var(--line);margin:0 16.6%}
+.spokes{display:grid;grid-template-columns:repeat(3,1fr);height:26px}
+.spokes i{width:1px;background:var(--line);margin:0 auto;display:block;height:100%}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:4px;padding:18px;position:relative}
+.card:before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--k);border-radius:4px 4px 0 0}
+.card .nm{font-family:ui-serif,Georgia,serif;font-size:19px;color:var(--k);font-weight:400}
+.card .dm{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--ink2);margin-top:6px;word-break:break-all}
+.card .em{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--ink3);margin-top:3px;word-break:break-all}
+.card ul{list-style:none;margin:14px 0 0;padding:12px 0 0;border-top:1px solid var(--line2)}
+.card li{font-size:13px;color:var(--ink2);padding:3px 0 3px 14px;position:relative}
+.card li:before{content:"";position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--k)}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:15.5px}
+th{text-align:left;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink3);font-weight:600;padding:0 14px 11px;border-bottom:1.5px solid var(--ink)}
+td{padding:13px 14px;border-bottom:1px solid var(--line);color:var(--ink2)}
+th:first-child,td:first-child{padding-left:0}
+th:last-child,td:last-child{padding-right:0}
+.r{text-align:right;font-variant-numeric:tabular-nums}
+td b{color:var(--ink);font-weight:600}
+tr.sum td{border-top:1.5px solid var(--ink);border-bottom:0;padding-top:16px;color:var(--ink);font-weight:600}
+tr.gst td{border-bottom:0;padding-top:6px;color:var(--ink3)}
+tr.pay td{border-bottom:0;border-top:1px solid var(--line);padding-top:14px;color:var(--ink);
+ font-family:ui-serif,Georgia,serif;font-size:22px;font-weight:400}
+.pill{display:inline-block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:3px}
+.pill.own{background:var(--manilla);color:#6B5427}
+.pill.buy{background:var(--clay);color:#fff}
+
+/* socials */
+.socgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.soc{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--k);border-radius:4px;padding:18px}
+.soc .t{font-family:ui-serif,Georgia,serif;font-size:18px;font-weight:400;color:var(--k);margin-bottom:14px}
+.soc ul{list-style:none;margin:0;padding:0}
+.soc li{display:flex;align-items:center;gap:11px;padding:5px 0;font-size:13.5px;color:var(--ink2)}
+.lg{display:block;width:21px;height:21px;flex:none}
+.lg svg{width:100%;height:100%;display:block}
+.li{background:var(--manilla);border:1px solid var(--kraft);border-radius:4px;padding:18px;margin-top:12px;display:flex;gap:14px;align-items:center}
+.li b{font-family:ui-serif,Georgia,serif;font-size:18px;font-weight:400;color:#5A4A28}
+.li span{font-size:13.5px;color:#6B5427;display:block;margin-top:2px}
+
+/* totals */
+.totals{display:grid;grid-template-columns:1fr 1fr;margin-top:42px;border-top:1.5px solid var(--ink)}
+.totals div{padding:24px 24px 0 0}
+.totals div+div{border-left:1px solid var(--line);padding-left:24px;padding-right:0}
+.totals span{display:block;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink3);margin-bottom:9px}
+.totals b{font-family:ui-serif,Georgia,serif;font-size:58px;font-weight:400;letter-spacing:-.04em;line-height:1}
+
+
+@media print{
+  @page{size:A4 landscape;margin:10mm 13mm}
+  body{background:#fff;min-width:0}
+  .slide{max-width:none;width:100%;padding:0;border-bottom:0;page-break-after:always;page-break-inside:avoid}
+  .slide:last-of-type{page-break-after:auto}
+  .cover{padding-top:120px}
+  .num{margin-bottom:10px}
+  h2{margin-bottom:20px;font-size:29px}
+  table{font-size:13px;page-break-inside:avoid}
+  th{padding:0 11px 8px}
+  td{padding:7.5px 11px}
+  tr.sum td{padding-top:11px}
+  tr.pay td{padding-top:9px;font-size:19px}
+  table+table{margin-top:26px !important}
+  .card,.soc,.parent,.li{box-shadow:none}
+  .card{padding:14px}.soc{padding:14px}.parent{padding:16px}.li{padding:14px}
+  .totals{margin-top:30px}
+  .totals div{padding-top:18px}
+  .totals b{font-size:46px}
+}
+</style>
+</head>
+<body>
+
+<section class="slide cover">
+  <div class="mark"></div>
+  <h1>USJ Group — business setup</h1>
+</section>
+
+<!-- ONE -->
+<section class="slide">
+  <p class="num">One</p>
+  <h2>Setup</h2>
+
+  <div class="parent">
+    <b>USJ GROUP</b>
+    <div class="d">usjgroup.in</div>
+  </div>
+  <div class="drop"></div>
+  <div class="rail"></div>
+  <div class="spokes"><i></i><i></i><i></i></div>
+
+  <div class="three">
+    <div class="card" style="--k:var(--navy)">
+      <div class="nm">ChaloKumbh</div>
+      <div class="dm">chalokumbh.com</div>
+      <div class="em">chalokumbh@usjgroup.in</div>
+      <ul>
+        <li>Online Pooja</li>
+        <li>Vedanz</li>
+        <li>Doon Travelers</li>
+        <li>USJ Stays</li>
+      </ul>
+    </div>
+    <div class="card" style="--k:var(--moss)">
+      <div class="nm">USJ Electronics</div>
+      <div class="dm">usjelectronics.com</div>
+      <div class="em">usjelectronics@usjgroup.in</div>
+      <ul>
+        <li>Retail</li>
+        <li>Bulk supply</li>
+      </ul>
+    </div>
+    <div class="card" style="--k:var(--plum)">
+      <div class="nm">USJ Technologies</div>
+      <div class="dm">usjtechnologies.com</div>
+      <div class="em">usjtechnologies@usjgroup.in</div>
+      <ul>
+        <li>IT services</li>
+        <li>Software &amp; apps</li>
+        <li>GeM &amp; tenders</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TWO -->
+<section class="slide">
+  <p class="num">Two</p>
+  <h2>Domains</h2>
+  <table>
+    <thead><tr><th>Domain</th><th>Status</th><th class="r">Price</th><th class="r">ICANN</th><th class="r">GST 18%</th><th class="r">Total</th></tr></thead>
+    <tbody>
+      <tr><td class="mono"><b>usjgroup.in</b></td><td data-l="Status"><span class="pill buy">Buy</span></td><td class="r" data-l="Price">549.00</td><td class="r" data-l="ICANN">&mdash;</td><td class="r" data-l="GST 18%">98.82</td><td class="r" data-l="Total"><b>647.82</b></td></tr>
+      <tr><td class="mono"><b>usjelectronics.com</b></td><td data-l="Status"><span class="pill buy">Buy</span></td><td class="r" data-l="Price">899.00</td><td class="r" data-l="ICANN">17.44</td><td class="r" data-l="GST 18%">164.96</td><td class="r" data-l="Total"><b>1,081.40</b></td></tr>
+      <tr><td class="mono"><b>chalokumbh.com</b></td><td data-l="Status"><span class="pill own">Owned</span></td><td class="r" data-l="Price">899.00</td><td class="r" data-l="ICANN">17.44</td><td class="r" data-l="GST 18%">164.96</td><td class="r" data-l="Total"><b>1,081.40</b></td></tr>
+      <tr><td class="mono"><b>usjtechnologies.com</b></td><td data-l="Status"><span class="pill own">Owned</span></td><td class="r" data-l="Price">899.00</td><td class="r" data-l="ICANN">17.44</td><td class="r" data-l="GST 18%">164.96</td><td class="r" data-l="Total"><b>1,081.40</b></td></tr>
+      <tr class="sum"><td>4 domains</td><td class="hm"></td><td class="r" data-l="Price">3,246.00</td><td class="r" data-l="ICANN">52.32</td><td class="r" data-l="GST 18%">593.70</td><td class="r" data-l="Total">3,892.02</td></tr>
+    </tbody>
+  </table>
+
+  <table style="margin-top:38px">
+    <thead><tr><th>Paying now &mdash; two new domains</th><th class="r">Amount</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">usjgroup.in</td><td class="r" data-l="Amount">549.00</td></tr>
+      <tr><td class="mono">usjelectronics.com</td><td class="r" data-l="Amount">899.00</td></tr>
+      <tr><td>WHOIS privacy protection</td><td class="r" data-l="Amount">0.00</td></tr>
+      <tr><td>ICANN fee</td><td class="r" data-l="Amount">17.44</td></tr>
+      <tr class="sum"><td>Subtotal</td><td class="r" data-l="Amount">1,465.44</td></tr>
+      <tr class="gst"><td>GST 18%</td><td class="r" data-l="Amount">263.78</td></tr>
+      <tr class="pay"><td>Total</td><td class="r" data-l="Amount">&#8377;1,729.22</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- THREE -->
+<section class="slide">
+  <p class="num">Three</p>
+  <h2>Email</h2>
+  <table>
+    <thead><tr><th>Mailbox</th><th>Plan</th><th class="r">&#8377; / month</th><th class="r">&#8377; / year</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">bhanu@usjtechnologies.com</td><td data-l="Plan">Already in use</td><td class="r" data-l="&#8377; / month">&mdash;</td><td class="r" data-l="&#8377; / year">&mdash;</td></tr>
+      <tr><td class="mono">jitesh@usjtechnologies.com</td><td data-l="Plan">Already in use</td><td class="r" data-l="&#8377; / month">&mdash;</td><td class="r" data-l="&#8377; / year">&mdash;</td></tr>
+      <tr><td class="mono">chalokumbh@usjgroup.in</td><td data-l="Plan">Workspace Base</td><td class="r" data-l="&#8377; / month">99</td><td class="r" data-l="&#8377; / year">1,188</td></tr>
+      <tr><td class="mono">usjelectronics@usjgroup.in</td><td data-l="Plan">Workspace Base</td><td class="r" data-l="&#8377; / month">99</td><td class="r" data-l="&#8377; / year">1,188</td></tr>
+      <tr><td class="mono">usjtechnologies@usjgroup.in</td><td data-l="Plan">Workspace Base</td><td class="r" data-l="&#8377; / month">99</td><td class="r" data-l="&#8377; / year">1,188</td></tr>
+      <tr class="sum"><td>3 new mailboxes</td><td class="hm"></td><td class="r" data-l="&#8377; / month">297</td><td class="r" data-l="&#8377; / year">3,564</td></tr>
+      <tr class="gst"><td>GST 18%</td><td class="hm"></td><td class="r hm"></td><td class="r" data-l="&#8377; / year">642</td></tr>
+      <tr class="pay"><td>Total</td><td class="hm"></td><td class="r hm"></td><td class="r" data-l="&#8377; / year">&#8377;4,206</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- FOUR -->
+<section class="slide">
+  <p class="num">Four</p>
+  <h2>Social accounts</h2>
+
+  <div class="socgrid">
+    <div class="soc" style="--k:var(--navy)">
+      <div class="t">ChaloKumbh</div>
+      <ul>
+        <li><span class="lg"><svg viewBox="0 0 24 24" fill="none" stroke="#E4405F" stroke-width="1.9"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.6" cy="6.4" r="1.15" fill="#E4405F" stroke="none"/></svg></span>Instagram</li>
+        <li><span class="lg"><svg viewBox="0 0 24 24"><path fill="#1877F2" d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0022 12z"/></svg></span>Facebook</li>
+        <li><span class="lg"><svg viewBox="0 0 24 24"><path fill="#191919" d="M17.53 3h3.02l-6.6 7.54L21.7 21h-6.06l-4.75-6.2L5.46 21H2.44l7.05-8.06L2.6 3h6.21l4.29 5.67L17.53 3zm-1.06 16.2h1.67L7.6 4.71H5.81l10.66 14.49z"/></svg></span>X</li>
+        <li><span class="lg"><svg viewBox="0 0 24 24"><path fill="#FF0000" d="M23.5 6.9a3 3 0 00-2.1-2.1C19.5 4.3 12 4.3 12 4.3s-7.5 0-9.4.5A3 3 0 00.5 6.9C0 8.8 0 12 0 12s0 3.2.5 5.1a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1c.5-1.9.5-5.1.5-5.1s0-3.2-.5-5.1z"/><path fill="#fff" d="M9.6 15.6l6.3-3.6-6.3-3.6z"/></svg></span>YouTube</li>
+      </ul>
+    </div>
+    <div class="soc" style="--k:var(--moss)">
+      <div class="t">USJ Electronics</div>
+      <ul>
+        <li><span class="lg"><svg viewBox="0 0 24 24" fill="none" stroke="#E4405F" stroke-width="1.9"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.6" cy="6.4" r="1.15" fill="#E4405F" stroke="none"/></svg></span>Instagram</li>
+        <li><span class="lg"><svg viewBox="0 0 24 24"><path fill="#1877F2" d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0022 12z"/></svg></span>Facebook</li>
+        <li><span class="lg"><svg viewBox="0 0 24 24"><path fill="#191919" d="M17.53 3h3.02l-6.6 7.54L21.7 21h-6.06l-4.75-6.2L5.46 21H2.44l7.05-8.06L2.6 3h6.21l4.29 5.67L17.53 3zm-1.06 16.2h1.67L7.6 4.71H5.81l10.66 14.49z"/></svg></span>X</li>
+        <li><span class="lg"><svg viewBox="0 0 24 24"><path fill="#FF0000" d="M23.5 6.9a3 3 0 00-2.1-2.1C19.5 4.3 12 4.3 12 4.3s-7.5 0-9.4.5A3 3 0 00.5 6.9C0 8.8 0 12 0 12s0 3.2.5 5.1a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1c.5-1.9.5-5.1.5-5.1s0-3.2-.5-5.1z"/><path fill="#fff" d="M9.6 15.6l6.3-3.6-6.3-3.6z"/></svg></span>YouTube</li>
+      </ul>
+    </div>
+    <div class="soc" style="--k:var(--plum)">
+      <div class="t">USJ Technologies</div>
+      <ul>
+        <li><span class="lg"><svg viewBox="0 0 24 24" fill="none" stroke="#E4405F" stroke-width="1.9"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.6" cy="6.4" r="1.15" fill="#E4405F" stroke="none"/></svg></span>Instagram</li>
+        <li><span class="lg"><svg viewBox="0 0 24 24"><path fill="#1877F2" d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0022 12z"/></svg></span>Facebook</li>
+        <li><span class="lg"><svg viewBox="0 0 24 24"><path fill="#191919" d="M17.53 3h3.02l-6.6 7.54L21.7 21h-6.06l-4.75-6.2L5.46 21H2.44l7.05-8.06L2.6 3h6.21l4.29 5.67L17.53 3zm-1.06 16.2h1.67L7.6 4.71H5.81l10.66 14.49z"/></svg></span>X</li>
+        <li><span class="lg"><svg viewBox="0 0 24 24"><path fill="#FF0000" d="M23.5 6.9a3 3 0 00-2.1-2.1C19.5 4.3 12 4.3 12 4.3s-7.5 0-9.4.5A3 3 0 00.5 6.9C0 8.8 0 12 0 12s0 3.2.5 5.1a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1c.5-1.9.5-5.1.5-5.1s0-3.2-.5-5.1z"/><path fill="#fff" d="M9.6 15.6l6.3-3.6-6.3-3.6z"/></svg></span>YouTube</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="li">
+    <span class="lg" style="width:26px;height:26px"><svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path fill="#fff" d="M7.1 9.5H4.6V19h2.5V9.5zM5.85 8.4a1.45 1.45 0 110-2.9 1.45 1.45 0 010 2.9zM19.4 19h-2.5v-4.6c0-1.1-.02-2.5-1.53-2.5-1.53 0-1.77 1.2-1.77 2.43V19H11.1V9.5h2.4v1.3h.03c.34-.63 1.15-1.3 2.37-1.3 2.53 0 3.5 1.66 3.5 3.83V19z"/></svg></span>
+    <div><b>LinkedIn</b><span>One page for the whole group</span></div>
+  </div>
+</section>
+
+<!-- FIVE -->
+<section class="slide">
+  <p class="num">Five</p>
+  <h2>Total</h2>
+  <table>
+    <thead><tr><th>Item</th><th></th><th class="r">₹ / year</th></tr></thead>
+    <tbody>
+      <tr><td><b>Domains</b></td><td data-l="Count">4</td><td class="r" data-l="₹ / year">3,892</td></tr>
+      <tr><td><b>Email</b></td><td data-l="Count">3 mailboxes</td><td class="r" data-l="₹ / year">4,206</td></tr>
+    </tbody>
+  </table>
+  <div class="totals">
+    <div><span>Per year &mdash; approx.</span><b>₹8,098</b></div>
+    <div><span>Per month &mdash; approx.</span><b>₹675</b></div>
+  </div>
+  <p style="margin:22px 0 0;font-size:13px;color:var(--ink3);line-height:1.55">
+    Figures are approximate. Domain prices are the amounts shown at Hostinger checkout in August 2026 and may change at renewal.
+    The two owned domains are assumed to renew at the same .com rate. Google Workspace Base is &#8377;99 per user per month. All totals include 18% GST.
+  </p>
+</section>
+
+</body>
+</html>

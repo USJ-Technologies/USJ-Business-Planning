@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>USJ — Voiceover Teleprompter</title>
+<style>
+:root{
+  --cream:#F0EEE6; --white:#fff; --ink:#191919; --ink2:#5A5852; --ink3:#8C8985;
+  --line:#E2DFD5; --line2:#EDEAE1; --clay:#CC785C; --manilla:#EBDBBC; --good:#5C7052; --warn:#9A6206;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--ink);min-height:100vh;
+ font:18px/1.6 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,sans-serif;
+ -webkit-font-smoothing:antialiased;overflow:hidden}
+
+/* top bar */
+.top{position:fixed;top:0;left:0;right:0;height:70px;display:flex;align-items:center;
+ justify-content:space-between;padding:0 28px;border-bottom:1px solid var(--line);background:var(--cream);z-index:5}
+.dot{width:22px;height:22px;border-radius:50%;background:var(--clay)}
+.tl{display:flex;align-items:center;gap:14px;font-size:15px;color:var(--ink3);letter-spacing:.06em}
+.clock{font-family:ui-monospace,Menlo,monospace;font-size:22px;color:var(--ink);font-variant-numeric:tabular-nums}
+.pips{display:flex;gap:6px}
+.pip{width:9px;height:9px;border-radius:50%;background:var(--line);transition:background .2s}
+.pip.done{background:var(--manilla)}
+.pip.now{background:var(--clay);transform:scale(1.25)}
+
+/* stage */
+.wrap{height:100vh;padding:70px 0 118px;display:flex;align-items:center;justify-content:center}
+.card{width:min(1180px,92vw);padding:0 32px}
+.cue{display:flex;align-items:baseline;gap:18px;margin-bottom:26px}
+.cue .n{font-family:ui-serif,Georgia,serif;font-size:22px;color:var(--clay);font-style:italic;letter-spacing:.16em}
+.cue .w{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+.line{font-family:ui-serif,Georgia,serif;font-size:clamp(30px,3.6vw,54px);line-height:1.35;letter-spacing:-.015em}
+.line b{font-weight:400;background:linear-gradient(transparent 66%,var(--manilla) 0);padding:0 2px}
+.next{margin-top:38px;padding-top:22px;border-top:1px solid var(--line);color:var(--ink3);
+ font-size:clamp(15px,1.5vw,20px);line-height:1.5}
+.next span{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px;color:var(--ink3)}
+
+/* pace bar */
+.pace{position:fixed;left:0;right:0;bottom:78px;height:4px;background:var(--line2)}
+.pace i{display:block;height:100%;width:0;background:var(--clay);transition:width .2s linear}
+.pace.over i{background:var(--warn)}
+
+/* bottom bar */
+.bot{position:fixed;bottom:0;left:0;right:0;height:78px;display:flex;align-items:center;
+ justify-content:space-between;padding:0 28px;border-top:1px solid var(--line);background:var(--cream);z-index:5;
+ font-size:14px;color:var(--ink3)}
+.keys b{font-family:ui-monospace,Menlo,monospace;background:var(--white);border:1px solid var(--line);
+ border-radius:4px;padding:3px 8px;color:var(--ink);font-weight:400;margin:0 3px}
+.btn{background:var(--clay);color:#fff;border:0;border-radius:6px;padding:13px 26px;font-size:16px;cursor:pointer;
+ font-family:inherit;letter-spacing:.04em}
+.btn.ghost{background:transparent;color:var(--ink2);border:1px solid var(--line)}
+.tgt{font-family:ui-monospace,Menlo,monospace;color:var(--ink2)}
+
+/* overlays */
+.ov{position:fixed;inset:0;background:var(--cream);z-index:20;display:flex;flex-direction:column;
+ align-items:center;justify-content:center;gap:26px;text-align:center;padding:40px}
+.ov h1{font-family:ui-serif,Georgia,serif;font-size:clamp(38px,5vw,72px);font-weight:400;letter-spacing:-.025em}
+.ov p{color:var(--ink2);font-size:19px;max-width:640px;line-height:1.6}
+.ov ul{list-style:none;color:var(--ink2);font-size:17px;line-height:2;text-align:left}
+.ov li:before{content:"— ";color:var(--clay)}
+.count{font-family:ui-serif,Georgia,serif;font-size:clamp(120px,20vw,260px);line-height:1;color:var(--clay)}
+.hide{display:none}
+@media(max-width:760px){
+  .top{height:58px;padding:0 16px}
+  .tl{display:none}
+  .pip{width:7px;height:7px}
+  .pips{gap:5px}
+  .clock{font-size:19px}
+  .wrap{padding:58px 0 96px}
+  .card{padding:0 20px}
+  .cue{margin-bottom:18px;gap:12px}
+  .cue .n{font-size:18px}.cue .w{font-size:12px}
+  .line{font-size:27px;line-height:1.4}
+  .next{margin-top:26px;padding-top:16px;font-size:15px}
+  .pace{bottom:64px}
+  .bot{height:64px;padding:0 16px;justify-content:center;gap:14px}
+  .keys{display:none}
+  .tgt{font-size:12px;text-align:center}
+  .taphint{display:block !important;font-size:13px;color:var(--clay);letter-spacing:.1em;text-transform:uppercase}
+}
+.taphint{display:none}
+.res{display:flex;gap:44px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.res div span{display:block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.res div b{font-family:ui-serif,Georgia,serif;font-size:44px;font-weight:400}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div style="display:flex;align-items:center;gap:16px"><div class="dot"></div>
+    <div class="tl">VOICEOVER SCRIPT</div></div>
+  <div class="pips" id="pips"></div>
+  <div style="display:flex;align-items:center;gap:20px">
+    <div class="tl">TOTAL</div><div class="clock" id="clock">0:00</div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <div class="cue"><div class="n" id="bn">01</div><div class="w" id="bw"></div></div>
+    <div class="line" id="line"></div>
+    <div class="next"><span>Next</span><div id="nx"></div></div>
+  </div>
+</div>
+
+<div class="pace" id="pace"><i id="pacei"></i></div>
+
+<div class="bot">
+  <div class="keys">
+    <b>Space</b> next line &nbsp;·&nbsp; <b>B</b> back &nbsp;·&nbsp; <b>R</b> restart &nbsp;·&nbsp; <b>F</b> full screen
+  </div>
+  <div class="taphint">Tap anywhere for next</div>
+  <div class="tgt" id="tgt"></div>
+</div>
+
+<!-- start -->
+<div class="ov" id="start">
+  <div class="dot" style="width:56px;height:56px"></div>
+  <h1>Voiceover script</h1>
+  <p>Ten short blocks. Press <b>Space</b> to move to the next one when you finish speaking it — go at your own pace, the bar underneath is only a guide.</p>
+  <ul>
+    <li>Record on your phone, a hand's width from your mouth</li>
+    <li>Quiet room, fan and AC off</li>
+    <li>Pause for one second between blocks</li>
+    <li>Made a mistake? Don't stop. Just say that sentence again</li>
+  </ul>
+  <button class="btn" id="go">Start — 3 second countdown</button>
+</div>
+
+<!-- countdown -->
+<div class="ov hide" id="cd"><div class="count" id="cdn">3</div>
+  <p>Start your recording now</p></div>
+
+<!-- done -->
+<div class="ov hide" id="done">
+  <h1>That's the whole script</h1>
+  <div class="res">
+    <div><span>Your time</span><b id="rtime">0:00</b></div>
+    <div><span>Target</span><b id="rtarget">0:00</b></div>
+    <div><span>Pace</span><b id="rpace">—</b></div>
+  </div>
+  <p id="rnote"></p>
+  <button class="btn ghost" onclick="location.reload()">Record it again</button>
+</div>
+
+<script>
+const BLOCKS=[
+ {w:'Three businesses appear', t:'So this is a proposal. Right now we have three businesses. ChaloKumbh, USJ Electronics, and USJ Technologies. What I want to do is give all three a proper place online, under one name.'},
+ {w:'Parent domain connects them', t:'The idea is simple. We buy one main domain. <b>usjgroup dot in</b>. Everything sits under it. It would hold the group website. And it would hold all our business emails.'},
+ {w:'Domain costs', t:'For this we need four domains in total. One thing to know. A domain is not a one time thing. We pay for it every year. All four would come to around <b>three thousand nine hundred rupees</b> a year.'},
+ {w:'Email', t:'Then email. Three mailboxes. One for each business. <b>Ninety nine rupees</b> per user per month. With GST that would be around <b>four thousand two hundred</b> for the year.'},
+ {w:'Social accounts', t:'And we would use these same mailboxes to open all the social media accounts. <b>Thirteen accounts</b>. Four platforms. All of them free.'},
+ {w:'The total', t:'So together, domains plus email, the whole thing would be around <b>eight thousand rupees</b> a year. That is <b>six hundred and seventy five rupees</b> a month. For three businesses.'},
+ {w:'What happens next', t:'If you approve this, this is what we would do. First buy the domains. Then move the online store to <b>usjelectronics dot com</b>. Then create the three mailboxes. After that open the social accounts and start posting. Proper posts on LinkedIn. And product posts for Electronics. Then start the ad campaigns. USB products for Electronics. Online Pooja, Vedanz and Doon Travelers for ChaloKumbh. And the reel contest.'},
+ {w:'Hiring', t:'And we would hire three people. A marketing specialist. A content creator in Haridwar. And a video editor. I want to put these job ads out early and hire fast. Without them we cannot do content properly.'},
+ {w:'Full focus', t:'After that we would focus on only three things. Marketing. Content. And our digital presence.'},
+ {w:'Close', t:'That is the proposal. One group. Many businesses. Please tell me what you think.'}
+];
+const WPS=2.4;
+BLOCKS.forEach(b=>{ b.words=b.t.replace(/<[^>]+>/g,'').trim().split(/\s+/).length; b.sec=Math.max(5,b.words/WPS); });
+const TARGET=BLOCKS.reduce((a,b)=>a+b.sec,0);
+
+const $=id=>document.getElementById(id);
+const pips=$('pips');
+BLOCKS.forEach(()=>{const d=document.createElement('div');d.className='pip';pips.appendChild(d);});
+const P=[...pips.children];
+
+let i=0, t0=null, bt0=null, timer=null, running=false;
+const fmt=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
+
+function render(){
+  const b=BLOCKS[i];
+  $('bn').textContent=String(i+1).padStart(2,'0');
+  $('bw').textContent=b.w;
+  $('line').innerHTML=b.t;
+  $('nx').innerHTML = BLOCKS[i+1] ? BLOCKS[i+1].t.replace(/<[^>]+>/g,'') : 'End of script.';
+  $('tgt').textContent='This block ≈ '+Math.round(b.sec)+'s   ·   whole script ≈ '+fmt(TARGET);
+  P.forEach((p,k)=>{p.className='pip'+(k<i?' done':k===i?' now':'');});
+  bt0=performance.now(); $('pace').classList.remove('over');
+}
+function tick(){
+  const now=performance.now();
+  $('clock').textContent=fmt((now-t0)/1000);
+  const el=(now-bt0)/1000, b=BLOCKS[i];
+  const r=Math.min(el/b.sec,1.35);
+  $('pacei').style.width=Math.min(r,1)*100+'%';
+  $('pace').classList.toggle('over', el>b.sec*1.15);
+}
+function next(){
+  if(!running) return;
+  if(i<BLOCKS.length-1){ i++; render(); }
+  else finish();
+}
+function back(){ if(running && i>0){ i--; render(); } }
+function finish(){
+  running=false; clearInterval(timer);
+  const took=(performance.now()-t0)/1000;
+  $('rtime').textContent=fmt(took); $('rtarget').textContent=fmt(TARGET);
+  const d=took/TARGET;
+  $('rpace').textContent = d<0.85?'Fast':d>1.2?'Relaxed':'Good';
+  $('rnote').textContent = d<0.85
+    ? 'A little quick. If it felt rushed, run it again and breathe at each full stop.'
+    : d>1.25 ? 'Nicely unhurried. I will stretch the animation to match your voice.'
+    : 'Good pace. Send me the MP3 and I will sync it to the video.';
+  $('done').classList.remove('hide');
+}
+function begin(){
+  $('start').classList.add('hide'); $('cd').classList.remove('hide');
+  let n=3; $('cdn').textContent=n;
+  const c=setInterval(()=>{ n--; if(n>0){ $('cdn').textContent=n; }
+    else { clearInterval(c); $('cd').classList.add('hide');
+      running=true; t0=performance.now(); render(); timer=setInterval(tick,100); } },1000);
+}
+$('go').onclick=begin;
+document.addEventListener('keydown',e=>{
+  if(e.code==='Space'){ e.preventDefault(); if(!running && !$('start').classList.contains('hide')) begin(); else next(); }
+  if(e.key==='b'||e.key==='B') back();
+  if(e.key==='r'||e.key==='R') location.reload();
+  if(e.key==='f'||e.key==='F'){ document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen(); }
+});
+document.querySelector('.wrap').addEventListener('click',next);
+</script>
+</body>
+</html>

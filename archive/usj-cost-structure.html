@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>USJ Group — Domains &amp; Email: Yearly Cost</title>
+<style>
+:root{
+  --surface:#fcfcfb; --card:#ffffff; --ink:#16181d; --ink2:#4a5160; --ink3:#767e8e;
+  --line:#e4e6ec; --line2:#eff0f4;
+  --brand:#1B3A6B; --brand2:#2563C9;
+  --c1:#2563C9; --c2:#1F7A4D;
+  --biz1:#1B3A6B; --biz2:#1F7A4D; --biz3:#6B3FA0;
+  --good:#1F7A4D; --warn:#9A6206; --warnbg:#FDF6E7; --goodbg:#EDF7F1;
+  --shadow:0 1px 2px rgba(16,20,28,.05), 0 8px 24px -12px rgba(16,20,28,.14);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --surface:#1a1a19; --card:#232322; --ink:#f2f2ef; --ink2:#b9bcc2; --ink3:#8b9098;
+    --line:#353634; --line2:#2c2d2b;
+    --brand:#9CC4FA; --brand2:#4E8AEA;
+    --c1:#4E8AEA; --c2:#2FA46E;
+    --biz1:#6FA5F5; --biz2:#3FB07A; --biz3:#B478E8;
+    --good:#3FB07A; --warn:#E3B04B; --warnbg:#2e2716; --goodbg:#17281f;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--surface);color:var(--ink);
+ font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+ -webkit-font-smoothing:antialiased}
+.wrap{max-width:1060px;margin:0 auto;padding:40px 24px 80px}
+h1{font-size:30px;line-height:1.2;margin:0 0 6px;letter-spacing:-.02em}
+h2{font-size:20px;margin:0 0 4px;letter-spacing:-.01em}
+h3{font-size:15px;margin:0 0 8px;letter-spacing:-.005em}
+p{margin:0 0 12px;color:var(--ink2)}
+.sub{color:var(--ink3);font-size:14px;margin:0}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin:0 0 10px}
+header{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:36px}
+section{margin:0 0 44px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
+
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:22px 0 0}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;box-shadow:var(--shadow)}
+.tile .lbl{font-size:12px;font-weight:600;color:var(--ink3);margin:0 0 6px;letter-spacing:.02em}
+.tile .num{font-size:30px;font-weight:700;letter-spacing:-.03em;line-height:1.05;font-variant-numeric:tabular-nums}
+.tile .note{font-size:12.5px;color:var(--ink3);margin-top:6px}
+.tile.hi{border-color:var(--brand2);border-width:2px}
+
+.tree{margin-top:6px}
+.root{background:var(--card);border:2px solid var(--brand);border-radius:14px;padding:16px 18px;text-align:center;box-shadow:var(--shadow)}
+.root .nm{font-size:19px;font-weight:700;letter-spacing:-.01em}
+.root .dm{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--brand2);margin-top:4px}
+.root .ds{font-size:12.5px;color:var(--ink3);margin-top:6px}
+.stem{height:22px;border-left:2px solid var(--line);margin:0 auto;width:0}
+.branch{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.unit{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--u);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+.unit .un{font-weight:700;font-size:15px;color:var(--u)}
+.unit .ud{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;color:var(--ink2);margin:5px 0 2px;word-break:break-all}
+.unit .um{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:var(--ink3);word-break:break-all}
+.svc{list-style:none;margin:12px 0 0;padding:0;border-top:1px solid var(--line2);padding-top:10px}
+.svc li{font-size:13.5px;color:var(--ink2);padding:3px 0 3px 16px;position:relative}
+.svc li:before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--u)}
+.own{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:5px;margin-left:6px;vertical-align:2px}
+.own.have{background:var(--goodbg);color:var(--good)}
+.own.buy{background:var(--warnbg);color:var(--warn)}
+
+table{width:100%;border-collapse:collapse;font-size:14px;margin-top:12px}
+th{text-align:left;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink3);
+ padding:0 12px 9px;border-bottom:1px solid var(--line)}
+td{padding:11px 12px;border-bottom:1px solid var(--line2);color:var(--ink2)}
+td:first-child,th:first-child{padding-left:2px}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+td strong{color:var(--ink);font-weight:600}
+tr.tot td{border-top:2px solid var(--line);border-bottom:none;font-weight:700;color:var(--ink);padding-top:13px}
+tr.pick td{background:var(--goodbg)}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px}
+
+.callout{border-radius:12px;padding:16px 18px;margin:18px 0 0;border:1px solid}
+.callout.warn{background:var(--warnbg);border-color:rgba(154,98,6,.28)}
+.callout.good{background:var(--goodbg);border-color:rgba(31,122,77,.28)}
+.callout h3{margin:0 0 6px;font-size:14.5px}
+.callout.warn h3{color:var(--warn)} .callout.good h3{color:var(--good)}
+.callout p{margin:0;font-size:14px}
+.callout ul{margin:8px 0 0;padding-left:18px;font-size:14px;color:var(--ink2)}
+.callout li{margin:4px 0}
+
+.chart{margin-top:18px}
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin:0 0 16px;font-size:13px;color:var(--ink2)}
+.legend span{display:flex;align-items:center;gap:7px}
+.sw{width:11px;height:11px;border-radius:3px;flex:none}
+.row{display:grid;grid-template-columns:172px 1fr 88px;align-items:center;gap:14px;margin:0 0 13px}
+.rowlbl{font-size:13.5px;font-weight:600;color:var(--ink);text-align:right;line-height:1.25}
+.rowlbl small{display:block;font-weight:400;color:var(--ink3);font-size:11.5px}
+.bar{height:28px;display:flex;position:relative}
+.seg{height:100%;position:relative;transition:filter .12s}
+.seg:hover{filter:brightness(1.12)}
+.seg+.seg{margin-left:2px}
+.seg:first-child{border-radius:4px 0 0 4px}
+.seg:last-child{border-radius:0 4px 4px 0}
+.seg:only-child{border-radius:4px}
+.rowval{font-size:14px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--surface);font-size:12.5px;
+ padding:7px 10px;border-radius:7px;opacity:0;transition:opacity .1s;z-index:50;white-space:nowrap;font-weight:600}
+.axis{display:grid;grid-template-columns:172px 1fr 88px;gap:14px;font-size:11.5px;color:var(--ink3)}
+.axis div:nth-child(2){display:flex;justify-content:space-between}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:720px){.two{grid-template-columns:1fr}.row,.axis{grid-template-columns:1fr}.rowlbl{text-align:left}}
+.steps{list-style:none;counter-reset:s;margin:14px 0 0;padding:0}
+.steps li{counter-increment:s;position:relative;padding:0 0 14px 40px;font-size:14.5px;color:var(--ink2)}
+.steps li:before{content:counter(s);position:absolute;left:0;top:-1px;width:26px;height:26px;border-radius:50%;
+ background:var(--brand2);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.steps li strong{color:var(--ink)}
+footer{border-top:1px solid var(--line);padding-top:20px;margin-top:50px;font-size:12.5px;color:var(--ink3)}
+@media print{body{background:#fff}.card,.tile,.unit,.root{box-shadow:none}section{page-break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">USJ Group · Internal Planning</p>
+  <h1>Domains &amp; Email — Yearly Running Cost</h1>
+  <p class="sub">What we own, what we buy, and what it costs every year to keep all three businesses reachable. Website and hosting costs are handled separately. Prices checked August 2026.</p>
+</header>
+
+<section>
+  <div class="tiles">
+    <div class="tile">
+      <div class="lbl">To pay right now</div>
+      <div class="num">₹1,711</div>
+      <div class="note">2 new domains, first year promo price</div>
+    </div>
+    <div class="tile">
+      <div class="lbl">Domains, every year after</div>
+      <div class="num">₹6,367</div>
+      <div class="note">All 4 domains at real renewal price</div>
+    </div>
+    <div class="tile hi">
+      <div class="lbl">Recommended total</div>
+      <div class="num">₹10,544</div>
+      <div class="note">4 domains + 5 mailboxes on Zoho Mail Lite</div>
+    </div>
+    <div class="tile">
+      <div class="lbl">Per month</div>
+      <div class="num">₹879</div>
+      <div class="note">Whole group — every domain, every mailbox</div>
+    </div>
+  </div>
+</section>
+
+<!-- STRUCTURE -->
+<section>
+  <p class="eyebrow">Part 1</p>
+  <h2>The structure</h2>
+  <p>One parent. Three businesses. Four domains. Five mailboxes.</p>
+
+  <div class="tree">
+    <div class="root">
+      <div class="nm">USJ GROUP</div>
+      <div class="dm">usjgroup.in <span class="own buy">Buy</span></div>
+      <div class="ds">Parent website — shows all businesses in one place. Also holds the three business email addresses.</div>
+    </div>
+    <div class="stem"></div>
+    <div class="branch">
+      <div class="unit" style="--u:var(--biz1)">
+        <div class="un">1 · ChaloKumbh</div>
+        <div class="ud">chalokumbh.com <span class="own have">Owned</span></div>
+        <div class="um">chalokumbh@usjgroup.in</div>
+        <ul class="svc">
+          <li>Online Pooja Services</li>
+          <li>Vedanz — drinking water &amp; Ganga Jal</li>
+          <li>Doon Travelers — tours &amp; transport</li>
+          <li>USJ Stays — hotels &amp; accommodation</li>
+        </ul>
+      </div>
+      <div class="unit" style="--u:var(--biz2)">
+        <div class="un">2 · USJ Electronics</div>
+        <div class="ud">usjelectronics.com <span class="own buy">Buy</span></div>
+        <div class="um">usjelectronics@usjgroup.in</div>
+        <ul class="svc">
+          <li>Consumer electronics &amp; gadgets</li>
+          <li>Accessories and IT peripherals</li>
+          <li>Retail — single piece</li>
+          <li>Bulk &amp; institutional supply</li>
+        </ul>
+      </div>
+      <div class="unit" style="--u:var(--biz3)">
+        <div class="un">3 · USJ Technologies</div>
+        <div class="ud">usjtechnologies.com <span class="own have">Owned</span></div>
+        <div class="um">usjtechnologies@usjgroup.in</div>
+        <ul class="svc">
+          <li>IT services &amp; consulting</li>
+          <li>Software &amp; app development</li>
+          <li>GeM / tender supply</li>
+          <li>Web &amp; digital services</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOMAINS -->
+<section>
+  <p class="eyebrow">Part 2</p>
+  <h2>Domains</h2>
+  <p>A domain is rented, not bought. You pay every year, forever. The first year is cheap; every year after is the real price.</p>
+
+  <div class="card">
+    <h3>Every year, from year 2 onwards</h3>
+    <table>
+      <thead><tr>
+        <th>Domain</th><th>Business</th><th>Status</th>
+        <th class="n">Renewal ₹</th><th class="n">GST 18%</th><th class="n">Total ₹</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="mono"><strong>usjgroup.in</strong></td><td>Parent</td><td><span class="own buy">Buy</span></td><td class="n">899</td><td class="n">162</td><td class="n"><strong>1,061</strong></td></tr>
+        <tr><td class="mono"><strong>chalokumbh.com</strong></td><td>ChaloKumbh</td><td><span class="own have">Owned</span></td><td class="n">1,499</td><td class="n">270</td><td class="n"><strong>1,769</strong></td></tr>
+        <tr><td class="mono"><strong>usjelectronics.com</strong></td><td>Electronics</td><td><span class="own buy">Buy</span></td><td class="n">1,499</td><td class="n">270</td><td class="n"><strong>1,769</strong></td></tr>
+        <tr><td class="mono"><strong>usjtechnologies.com</strong></td><td>Technologies</td><td><span class="own have">Owned</span></td><td class="n">1,499</td><td class="n">270</td><td class="n"><strong>1,769</strong></td></tr>
+        <tr class="tot"><td>Total — 4 domains</td><td></td><td></td><td class="n">5,396</td><td class="n">971</td><td class="n">6,367</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn">
+    <h3>⚠ Two things the ₹3,130 estimate missed</h3>
+    <ul>
+      <li><strong>₹550 and ₹900 are first-year promo prices.</strong> From year 2 the same domains cost ₹899 and ₹1,499 — almost triple.</li>
+      <li><strong>The two domains we already own also renew every year.</strong> chalokumbh.com and usjtechnologies.com are ₹1,769 each, every year. They were not in the estimate at all.</li>
+    </ul>
+  </div>
+
+  <div class="callout good">
+    <h3>✓ How to actually save money here</h3>
+    <p>Register all four for <strong>3–5 years at once</strong>. You lock today's price, you cannot forget to renew, and search engines treat a long registration as a sign of a serious business. Turn on auto-renew and domain privacy — losing a live domain to a missed payment is the most expensive mistake possible here.</p>
+  </div>
+</section>
+
+<!-- EMAIL -->
+<section>
+  <p class="eyebrow">Part 3</p>
+  <h2>Business email</h2>
+  <p>Three mailboxes run the three businesses. Two personal mailboxes already exist. Five in total.</p>
+
+  <div class="two">
+    <div class="card">
+      <h3>Already in use</h3>
+      <table><tbody>
+        <tr><td class="mono">bhanu@usjtechnologies.com</td><td>Bhanu</td></tr>
+        <tr><td class="mono">jitesh@usjtechnologies.com</td><td>Jitesh</td></tr>
+      </tbody></table>
+    </div>
+    <div class="card">
+      <h3>To create — one per business</h3>
+      <table><tbody>
+        <tr><td class="mono">chalokumbh@usjgroup.in</td><td>Business 1</td></tr>
+        <tr><td class="mono">usjelectronics@usjgroup.in</td><td>Business 2</td></tr>
+        <tr><td class="mono">usjtechnologies@usjgroup.in</td><td>Business 3</td></tr>
+      </tbody></table>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <h3>Zoho plans — official India pricing</h3>
+    <table>
+      <thead><tr>
+        <th>Plan</th><th class="n">₹/user<br>month</th><th class="n">₹/user<br>year</th>
+        <th class="n">3 mailboxes<br>₹/yr + GST</th><th class="n">5 mailboxes<br>₹/yr + GST</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Forever Free</strong><br><span class="sub">5 users · 5 GB each · 1 domain · <strong>web browser only</strong></span></td>
+          <td class="n">0</td><td class="n">0</td><td class="n"><strong>0</strong></td><td class="n"><strong>0</strong></td>
+        </tr>
+        <tr class="pick">
+          <td><strong>Mail Lite — 5 GB</strong> <span class="own have">Recommended</span><br><span class="sub">Adds phone app, Outlook, IMAP/POP, support</span></td>
+          <td class="n">59</td><td class="n">708</td><td class="n"><strong>2,506</strong></td><td class="n"><strong>4,177</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Workplace Standard</strong><br><span class="sub">30 GB mail + WorkDrive, Writer, Sheets, Cliq, Meeting</span></td>
+          <td class="n">99</td><td class="n">1,188</td><td class="n"><strong>4,206</strong></td><td class="n"><strong>7,009</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Mail Premium</strong><br><span class="sub">50 GB mail, S/MIME encryption, data loss prevention</span></td>
+          <td class="n">199</td><td class="n">2,388</td><td class="n"><strong>8,454</strong></td><td class="n"><strong>14,089</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Workplace Professional</strong><br><span class="sub">100 GB mail, 1 TB team storage, compliance tools</span></td>
+          <td class="n">399</td><td class="n">4,788</td><td class="n"><strong>16,950</strong></td><td class="n"><strong>28,249</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="sub" style="margin-top:12px">All plans billed annually. Zoho's listed prices exclude GST; totals above add 18%.</p>
+  </div>
+
+  <div class="callout warn">
+    <h3>⚠ The catch in the free plan</h3>
+    <p>Zoho's Forever Free plan <strong>no longer includes IMAP, POP or ActiveSync</strong>. That means no Outlook, and no proper mail app on the phone — you can only read mail in a web browser at mail.zoho.com. For a business that answers customer enquiries from a phone, that is a real problem.</p>
+  </div>
+
+  <div class="callout good">
+    <h3>✓ Plain recommendation — Mail Lite, 5 mailboxes</h3>
+    <p><strong>₹4,177 per year. That is ₹348 a month for the entire team.</strong> Mail Lite gives phone and Outlook access, proper support, and room to add people. The free plan saves ₹4,177 a year and costs us the ability to reply to a customer from a phone. Not a good trade. Workplace Standard is worth revisiting later if we start needing shared documents and chat.</p>
+  </div>
+</section>
+
+<!-- TOTALS -->
+<section>
+  <p class="eyebrow">Part 4</p>
+  <h2>Total yearly cost</h2>
+  <p>Domains stay the same in every case. The only variable is which email plan we pick.</p>
+
+  <div class="card chart">
+    <div class="legend">
+      <span><i class="sw" style="background:var(--c1)"></i>Domains — 4</span>
+      <span><i class="sw" style="background:var(--c2)"></i>Email</span>
+    </div>
+    <div id="bars"></div>
+    <div class="axis"><div></div><div><span>₹0</span><span>₹10,000</span><span>₹20,500</span></div><div></div></div>
+  </div>
+
+  <div class="two" style="margin-top:14px">
+    <div class="card">
+      <h3 style="color:var(--good)">Recommended — ₹10,544/yr</h3>
+      <p style="font-size:14px;margin:0">4 domains (₹6,367) + Mail Lite for 5 mailboxes (₹4,177). <strong>₹879 per month for the whole group.</strong> Everything works on phone and desktop.</p>
+    </div>
+    <div class="card">
+      <h3>Cheapest possible — ₹6,367/yr</h3>
+      <p style="font-size:14px;margin:0">Same 4 domains, Zoho free email. <strong>₹531 per month.</strong> Saves ₹4,177 a year, but mail is web-browser only — no phone app, no Outlook.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ACTION -->
+<section>
+  <p class="eyebrow">Part 5</p>
+  <h2>What to do, in order</h2>
+  <ol class="steps">
+    <li><strong>Buy usjgroup.in and usjelectronics.com</strong> — ₹1,711 today. Register for 3 years if the budget allows; the price only goes up.</li>
+    <li><strong>Turn on auto-renew for all four domains.</strong> Add a calendar reminder 30 days before each renewal date as a backup.</li>
+    <li><strong>Set up Zoho Mail on usjgroup.in.</strong> Start free while testing, upgrade to Mail Lite before the mailboxes go on any visiting card, website or advertisement.</li>
+    <li><strong>Create the three business mailboxes</strong> and hand each one to the person responsible for that business.</li>
+    <li><strong>Decide on bhanu@ and jitesh@.</strong> Either keep them on usjtechnologies.com or move both to usjgroup.in so everything sits under one roof. Moving is easier now than later.</li>
+    <li><strong>Review this page every year in the renewal month.</strong> Prices change; the structure should not.</li>
+  </ol>
+</section>
+
+<footer>
+  <p><strong>Prices verified August 2026.</strong> Domain renewals from Hostinger India: .in ₹899/yr, .com ₹1,499/yr. Zoho Mail India pricing, billed annually: Mail Lite ₹59, Workplace Standard ₹99, Mail Premium ₹199, Workplace Professional ₹399 per user per month. Forever Free plan: 5 users, 5 GB per user, one domain, no IMAP/POP/ActiveSync. All totals include 18% GST. Website and hosting costs are excluded from this document by design.</p>
+</footer>
+
+</div>
+<div class="tip" id="tip"></div>
+
+<script>
+const DATA = [
+  {name:"Free email",          note:"web browser only",        d:6367, e:0},
+  {name:"Mail Lite × 3",       note:"business mailboxes only", d:6367, e:2506},
+  {name:"Mail Lite × 5",       note:"recommended",             d:6367, e:4177},
+  {name:"Workplace Std × 5",   note:"adds docs & chat",        d:6367, e:7009},
+  {name:"Mail Premium × 5",    note:"encryption & DLP",        d:6367, e:14089}
+];
+const MAX = 20500;
+const CATS = [["d","Domains","var(--c1)"],["e","Email","var(--c2)"]];
+const inr = n => "₹" + n.toLocaleString("en-IN");
+const tip = document.getElementById("tip");
+
+document.getElementById("bars").innerHTML = DATA.map(r => {
+  const total = r.d + r.e;
+  const segs = CATS.filter(([k]) => r[k] > 0).map(([k,label,col]) =>
+    `<div class="seg" style="width:${(r[k]/MAX*100).toFixed(2)}%;background:${col}"
+       data-t="${label}: ${inr(r[k])}"></div>`).join("");
+  return `<div class="row">
+    <div class="rowlbl">${r.name}<small>${r.note}</small></div>
+    <div class="bar">${segs}</div>
+    <div class="rowval">${inr(total)}</div>
+  </div>`;
+}).join("");
+
+document.querySelectorAll(".seg").forEach(el => {
+  el.addEventListener("mousemove", e => {
+    tip.textContent = el.dataset.t;
+    tip.style.opacity = 1;
+    tip.style.left = Math.min(e.clientX + 14, innerWidth - tip.offsetWidth - 10) + "px";
+    tip.style.top = (e.clientY - 34) + "px";
+  });
+  el.addEventListener("mouseleave", () => tip.style.opacity = 0);
+});
+</script>
+</body>
+</html>

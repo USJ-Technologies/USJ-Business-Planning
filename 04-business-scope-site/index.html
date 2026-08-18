@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>USJ Group — Business Scope</title>
+<style>
+:root{
+  --cream:#F0EEE6; --white:#fff; --ink:#191919; --ink2:#5A5852; --ink3:#8C8985;
+  --line:#E2DFD5; --line2:#EDEAE1;
+  --clay:#CC785C; --kraft:#D4A27F; --manilla:#EBDBBC;
+  --navy:#3F5A7D; --moss:#5C7052; --plum:#7A5C7D; --sand:#8A7350;
+  --nav:280px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);
+ font:17px/1.62 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,sans-serif;
+ -webkit-font-smoothing:antialiased}
+.serif{font-family:ui-serif,Georgia,"Iowan Old Style",serif}
+
+/* logo */
+.logo{background-image:url(logo-mark.png);background-size:contain;
+ background-repeat:no-repeat;background-position:center;display:inline-block;flex:none}
+.logo.sm{width:32px;height:29px}
+.logo.lg{width:104px;height:95px}
+.wordmark{font-family:ui-serif,Georgia,serif;letter-spacing:.02em;line-height:1}
+.lockup{display:flex;align-items:center;gap:20px;margin-bottom:34px}
+.lockup .wm b{display:block;font-family:ui-serif,Georgia,serif;font-size:40px;font-weight:400;letter-spacing:-.01em;line-height:1.05}
+.lockup .wm span{display:block;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--clay);margin-top:8px}
+body.present .lockup .wm b{font-size:clamp(38px,4.4vw,62px)}
+body.present .lockup .logo.lg{width:150px;height:137px}
+
+
+/* ---------- top bar ---------- */
+.top{position:fixed;top:0;left:0;right:0;height:62px;background:var(--cream);z-index:60;
+ border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 22px}
+.brand{display:flex;align-items:center;gap:13px}
+.dot{width:20px;height:20px;border-radius:50%;background:var(--clay);flex:none}
+.brand b{font-family:ui-serif,Georgia,serif;font-size:19px;font-weight:400;letter-spacing:-.01em}
+.brand span{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3)}
+.modes{display:flex;background:var(--white);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.modes button{border:0;background:transparent;font:inherit;font-size:14px;padding:8px 17px;cursor:pointer;color:var(--ink3)}
+.modes button.on{background:var(--ink);color:var(--cream)}
+.burger{display:none;border:1px solid var(--line);background:var(--white);border-radius:7px;padding:8px 12px;cursor:pointer;font:inherit;font-size:14px}
+
+/* ---------- sidebar ---------- */
+.nav{position:fixed;top:62px;bottom:0;left:0;width:var(--nav);border-right:1px solid var(--line);
+ overflow-y:auto;padding:26px 0 60px;background:var(--cream);z-index:50}
+.nav h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);padding:0 24px;margin:22px 0 8px}
+.nav h4:first-child{margin-top:0}
+.nav a{display:block;padding:7px 24px;font-size:14.5px;color:var(--ink2);text-decoration:none;border-left:2px solid transparent}
+.nav a:hover{color:var(--ink);background:rgba(0,0,0,.02)}
+.nav a.sub{padding-left:38px;font-size:13.5px;color:var(--ink3)}
+.nav a.act{color:var(--ink);border-left-color:var(--clay);background:rgba(204,120,92,.06)}
+.nav .tagn{display:inline-block;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;
+ padding:1px 6px;border-radius:3px;margin-left:7px;vertical-align:1px;background:var(--manilla);color:#6B5427}
+.nav .tagn.live{background:var(--moss);color:#fff}
+.nav .tagn.soon{background:var(--line);color:var(--ink3)}
+
+/* ---------- content ---------- */
+main{margin-left:var(--nav);padding:62px 0 0}
+.wrap{max-width:820px;margin:0 auto;padding:0 46px}
+.sl{padding:56px 0;border-bottom:1px solid var(--line2)}
+.sl:last-child{border-bottom:0}
+.eyebrow{font-family:ui-serif,Georgia,serif;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;
+ color:var(--clay);font-style:italic;margin-bottom:14px}
+h1{font-family:ui-serif,Georgia,serif;font-size:46px;line-height:1.08;letter-spacing:-.028em;font-weight:400;margin-bottom:16px}
+h2{font-family:ui-serif,Georgia,serif;font-size:34px;line-height:1.14;letter-spacing:-.02em;font-weight:400;margin-bottom:20px}
+h3{font-family:ui-serif,Georgia,serif;font-size:23px;font-weight:400;letter-spacing:-.01em;margin-bottom:16px}
+.lede{font-size:19.5px;line-height:1.55;color:var(--ink2);margin-bottom:8px}
+p{color:var(--ink2);margin-bottom:14px}
+p:last-child{margin-bottom:0}
+.mono{font-family:ui-monospace,Menlo,monospace;font-size:.92em}
+
+/* steps */
+ol.steps{list-style:none;counter-reset:s;margin-top:6px}
+ol.steps li{counter-increment:s;position:relative;padding:11px 0 11px 52px;border-bottom:1px solid var(--line2);
+ font-size:16.5px;color:var(--ink2)}
+ol.steps li:last-child{border-bottom:0}
+ol.steps li:before{content:counter(s);position:absolute;left:0;top:11px;width:30px;height:30px;border-radius:50%;
+ background:var(--white);border:1px solid var(--line);font-family:ui-serif,Georgia,serif;font-size:14px;
+ color:var(--clay);display:flex;align-items:center;justify-content:center}
+
+/* bullets */
+ul.b{list-style:none;margin-top:4px}
+ul.b li{position:relative;padding:8px 0 8px 22px;font-size:16.5px;color:var(--ink2);border-bottom:1px solid var(--line2)}
+ul.b li:last-child{border-bottom:0}
+ul.b li:before{content:"";position:absolute;left:0;top:17px;width:6px;height:6px;border-radius:50%;background:var(--kraft)}
+ul.b.plain li{border-bottom:0;padding-top:5px;padding-bottom:5px}
+ul.b li b{color:var(--ink);font-weight:600}
+
+/* cards */
+.cards{display:grid;gap:14px;margin-top:8px}
+.cards.c2{grid-template-columns:1fr 1fr}
+.cards.c3{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:20px;position:relative}
+.card.k:before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--k);border-radius:8px 8px 0 0}
+.card .ct{font-family:ui-serif,Georgia,serif;font-size:21px;font-weight:400;margin-bottom:8px;color:var(--k,var(--ink))}
+.card .cs{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3);margin-bottom:10px}
+.card p,.card li{font-size:15px}
+
+/* callout */
+.note{border-left:3px solid var(--clay);padding:2px 0 2px 20px;margin-top:22px}
+.note.calm{border-left-color:var(--kraft)}
+.note b{color:var(--ink)}
+.note p{font-size:16.5px}
+
+/* status chips */
+.chip{display:inline-block;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;padding:3px 9px;border-radius:4px}
+.chip.live{background:var(--moss);color:#fff}
+.chip.ready{background:var(--manilla);color:#6B5427}
+.chip.soon{background:var(--line);color:var(--ink3)}
+
+/* status table */
+table{width:100%;border-collapse:collapse;font-size:16px;margin-top:8px}
+th{text-align:left;font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3);
+ font-weight:600;padding:0 12px 10px;border-bottom:1.5px solid var(--ink)}
+td{padding:13px 12px;border-bottom:1px solid var(--line2);color:var(--ink2);vertical-align:top}
+th:first-child,td:first-child{padding-left:0}
+th:last-child,td:last-child{padding-right:0}
+td b{color:var(--ink);font-weight:600}
+
+/* journey */
+.journey{counter-reset:j;margin-top:8px}
+.journey li{counter-increment:j;list-style:none;display:grid;grid-template-columns:44px 1fr;gap:18px;
+ padding:13px 0;border-bottom:1px solid var(--line2);align-items:baseline}
+.journey li:last-child{border-bottom:0}
+.journey li:before{content:counter(j);font-family:ui-serif,Georgia,serif;font-size:20px;color:var(--clay)}
+.journey li b{color:var(--ink)}
+.journey li em{font-style:normal;color:var(--ink3);display:block;font-size:14.5px;margin-top:2px}
+
+/* ---------- PRESENT MODE ---------- */
+body.present{overflow:hidden}
+body.present .nav{transform:translateX(-100%)}
+body.present main{margin-left:0;padding:0}
+body.present .wrap{max-width:none;padding:0}
+body.present .sl{position:fixed;inset:62px 0 76px;padding:0 8vw;border:0;
+ display:none;flex-direction:column;justify-content:center;overflow-y:auto}
+body.present .sl.cur{display:flex;animation:fade .45s ease}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+body.present h1{font-size:clamp(40px,5.4vw,76px)}
+body.present h2{font-size:clamp(32px,4.2vw,58px);margin-bottom:28px}
+body.present h3{font-size:clamp(21px,2.2vw,30px)}
+body.present .lede{font-size:clamp(19px,2vw,28px)}
+body.present p,body.present ul.b li,body.present ol.steps li,body.present td{font-size:clamp(16px,1.5vw,21px)}
+body.present ol.steps li{padding:13px 0 13px 62px}
+body.present ol.steps li:before{width:36px;height:36px;font-size:16px}
+body.present .eyebrow{font-size:15px;margin-bottom:18px}
+body.present .card .ct{font-size:clamp(18px,1.8vw,25px)}
+body.present .card p,body.present .card li{font-size:clamp(14px,1.35vw,18px)}
+body.present table{font-size:clamp(14px,1.4vw,19px)}
+.pbar{display:none;position:fixed;left:0;bottom:0;height:4px;background:var(--clay);z-index:70;transition:width .3s}
+body.present .pbar{display:block}
+.pctl{display:none;position:fixed;left:0;right:0;bottom:0;height:76px;border-top:1px solid var(--line);
+ background:var(--cream);z-index:65;align-items:center;justify-content:space-between;padding:0 26px}
+body.present .pctl{display:flex}
+.pctl .cnt{font-family:ui-monospace,Menlo,monospace;font-size:15px;color:var(--ink3)}
+.pctl .btns{display:flex;gap:10px}
+.pctl button{border:1px solid var(--line);background:var(--white);border-radius:7px;padding:9px 18px;
+ font:inherit;font-size:15px;cursor:pointer;color:var(--ink)}
+.pctl button:hover{background:var(--manilla)}
+.hint{font-size:13px;color:var(--ink3)}
+
+@media(max-width:900px){
+  :root{--nav:0px}
+  .burger{display:block}
+  .nav{transform:translateX(-100%);transition:transform .25s;width:270px;box-shadow:6px 0 24px rgba(0,0,0,.08)}
+  body.navopen .nav{transform:none}
+  main{margin-left:0}
+  .wrap{padding:0 22px}
+  h1{font-size:33px}h2{font-size:26px}.lede{font-size:17.5px}
+  .cards.c2,.cards.c3{grid-template-columns:1fr}
+  .sl{padding:40px 0}
+  body.present .sl{padding:0 24px}
+  .pctl{padding:0 14px}.pctl .hint{display:none}
+}
+@media print{
+  .top,.nav,.pctl,.pbar{display:none}
+  main{margin:0;padding:0}
+  .sl{page-break-inside:avoid;border-bottom:0;padding:24px 0}
+  body{background:#fff}
+}
+</style>
+</head>
+<body class="read">
+
+<div class="top">
+  <div class="brand">
+    <span class="logo sm"></span>
+    <div><b>USJ Group</b> <span style="margin-left:8px">Business Scope</span></div>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px">
+    <button class="burger" id="burger">Menu</button>
+    <div class="modes">
+      <button id="mRead" class="on">Read</button>
+      <button id="mPres">Present</button>
+    </div>
+  </div>
+</div>
+
+<nav class="nav" id="nav">
+  <h4>Start</h4>
+  <a href="#s-cover">Cover</a>
+  <a href="#s-overview">The group</a>
+  <a href="#s-today">Where we are today</a>
+
+  <h4>ChaloKumbh</h4>
+  <a href="#s-ck">The idea<span class="tagn">4 services</span></a>
+  <a href="#s-pooja-1" class="sub">Online Pooja</a>
+  <a href="#s-ved-1" class="sub">Vedanz</a>
+  <a href="#s-doon-1" class="sub">Doon Travellers <span class="tagn live">Live</span></a>
+  <a href="#s-stays-1" class="sub">USJ Stays</a>
+  <a href="#s-ck-join">One customer, five earnings</a>
+  <a href="#s-ck-need">What ChaloKumbh needs</a>
+
+  <h4>Coming next</h4>
+  <a href="#s-next" style="color:var(--ink3)">USJ Electronics <span class="tagn soon">Soon</span></a>
+  <a href="#s-next" style="color:var(--ink3)">USJ Technologies <span class="tagn soon">Soon</span></a>
+</nav>
+
+<main>
+<div class="wrap">
+
+<!-- COVER -->
+<section class="sl" id="s-cover">
+  <div class="lockup">
+    <span class="logo lg"></span>
+    <div class="wm"><b>USJ GROUP</b><span>Innovate · Integrate · Impact</span></div>
+  </div>
+  <h1>Business scope</h1>
+  <p class="lede">What each business can do, how it works, and what it needs to run properly.</p>
+  <p class="lede" style="color:var(--ink3);font-size:17px;margin-top:20px">A working document. ChaloKumbh first. USJ Electronics and USJ Technologies to follow.</p>
+</section>
+
+<!-- OVERVIEW -->
+<section class="sl" id="s-overview">
+  <div class="eyebrow">The group</div>
+  <h2>Three businesses under one name</h2>
+  <div class="cards c3">
+    <div class="card k" style="--k:var(--navy)">
+      <div class="ct">ChaloKumbh</div>
+      <div class="cs">Spiritual &amp; travel</div>
+      <ul class="b plain">
+        <li>Online Pooja</li><li>Vedanz</li><li>Doon Travellers</li><li>USJ Stays</li>
+      </ul>
+    </div>
+    <div class="card k" style="--k:var(--moss)">
+      <div class="ct">USJ Electronics</div>
+      <div class="cs">Products</div>
+      <ul class="b plain"><li>Retail</li><li>Bulk supply</li></ul>
+    </div>
+    <div class="card k" style="--k:var(--plum)">
+      <div class="ct">USJ Technologies</div>
+      <div class="cs">Services</div>
+      <ul class="b plain"><li>IT services</li><li>Software &amp; apps</li><li>GeM &amp; tenders</li></ul>
+    </div>
+  </div>
+  <div class="note calm"><p>This document covers what each one can do, and what it would take to do it.</p></div>
+</section>
+
+<!-- TODAY -->
+<section class="sl" id="s-today">
+  <div class="eyebrow">Honestly</div>
+  <h2>Where we are today</h2>
+  <table>
+    <thead><tr><th>Thing</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td><b>Doon Travellers</b><br><span style="font-size:15px">Cabs, real bookings, real customers</span></td><td><span class="chip live">Running</span></td></tr>
+      <tr><td><b>ChaloKumbh website</b><br><span style="font-size:15px">Built and online</span></td><td><span class="chip ready">Built</span></td></tr>
+      <tr><td><b>Social — ChaloKumbh</b><br><span style="font-size:15px">Instagram, Facebook, X, YouTube created</span></td><td><span class="chip ready">Created</span></td></tr>
+      <tr><td><b>Posting</b><br><span style="font-size:15px">Instagram and Facebook only. Daily Hindu calendar posts and temple reels</span></td><td><span class="chip ready">Started</span></td></tr>
+      <tr><td><b>USJ Group LinkedIn</b></td><td><span class="chip ready">Created</span></td></tr>
+      <tr><td><b>Online Pooja</b></td><td><span class="chip soon">Not started</span></td></tr>
+      <tr><td><b>Vedanz</b></td><td><span class="chip soon">Not started</span></td></tr>
+      <tr><td><b>USJ Stays</b></td><td><span class="chip soon">Not started</span></td></tr>
+      <tr><td><b>Electronics &amp; Technologies social</b></td><td><span class="chip soon">Not created</span></td></tr>
+    </tbody>
+  </table>
+  <div class="note"><p><b>One service is already earning.</b> The rest are built, or ready to build, but nobody is running them yet.</p></div>
+</section>
+
+<!-- CHALOKUMBH INTRO -->
+<section class="sl" id="s-ck">
+  <div class="eyebrow">ChaloKumbh</div>
+  <h2>It is not four businesses.<br>It is one customer, four moments.</h2>
+  <ul class="journey">
+    <li><b>Getting to Haridwar</b><em>Doon Travellers</em></li>
+    <li><b>Staying in Haridwar</b><em>USJ Stays</em></li>
+    <li><b>Praying at the Ganga</b><em>Online Pooja — live, for those who cannot come</em></li>
+    <li><b>Drinking water while walking the ghats</b><em>Vedanz</em></li>
+    <li><b>Taking Ganga Jal home</b><em>Vedanz</em></li>
+  </ul>
+  <div class="note"><p>All four serve <b>the same person</b>. That is why one team can run them, and why one customer can buy from us more than once.</p></div>
+</section>
+
+<!-- ============ ONLINE POOJA ============ -->
+<section class="sl" id="s-pooja-1">
+  <div class="eyebrow">ChaloKumbh · Service one</div>
+  <h2>Online Pooja — live</h2>
+  <p class="lede">A devotee books a pooja on our website. Our pandit performs it at the ghat in Haridwar. The devotee watches it <b>live</b>, as it happens.</p>
+  <div class="note">
+    <p><b>Why we can do this.</b> Every other platform sends a recorded video afterwards. Even the big apps. Nobody shows the pooja live.</p>
+    <p>We are on the ghat ourselves — not booking through a middleman.</p>
+  </div>
+</section>
+
+<section class="sl" id="s-pooja-2">
+  <div class="eyebrow">Online Pooja</div>
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li>Devotee opens the website and chooses a pooja</li>
+    <li>They enter their name and gotra, and pick a date and time</li>
+    <li>They pay online</li>
+    <li>We send them a private link for their pooja</li>
+    <li>At the fixed time, our person sets up the camera at the ghat</li>
+    <li>The pandit performs the pooja, taking their name and gotra</li>
+    <li>The devotee watches it live from anywhere in the world</li>
+    <li>After it finishes, we send them the recording too</li>
+    <li>We courier the prasad and Ganga Jal to their home</li>
+  </ol>
+</section>
+
+<section class="sl" id="s-pooja-3">
+  <div class="eyebrow">Online Pooja</div>
+  <h2>What we need</h2>
+  <div class="cards c2">
+    <div class="card"><div class="cs">People</div>
+      <ul class="b plain"><li>Pandit tie-up in Haridwar</li><li>One person to set up and run the camera</li></ul></div>
+    <div class="card"><div class="cs">Setup</div>
+      <ul class="b plain"><li>Camera on a tripod</li><li>Reliable internet at the ghat</li><li>Live streaming on our website</li></ul></div>
+    <div class="card"><div class="cs">Delivery</div>
+      <ul class="b plain"><li>Prasad packing</li><li>Courier for India</li><li>Courier for abroad</li></ul></div>
+    <div class="card"><div class="cs">Already have</div>
+      <ul class="b plain"><li>Website with booking</li><li>Online payment</li><li>The ChaloKumbh name</li></ul></div>
+  </div>
+</section>
+
+<section class="sl" id="s-pooja-4">
+  <div class="eyebrow">Online Pooja</div>
+  <h2>How we get customers</h2>
+  <div class="note" style="margin-top:0;margin-bottom:26px">
+    <p><b>The main idea: give the aarti away free, sell the pooja.</b></p>
+    <p>Stream Ganga Aarti live from Har Ki Pauri every evening, free, on YouTube and Instagram. The people who watch Ganga Aarti online are exactly the people who book a Ganga pooja. Costs nothing extra — the camera and the person are already there.</p>
+  </div>
+  <ul class="b">
+    <li><b>NRI ads</b> — Indian origin, Hindu, living in USA, UK, Canada, UAE, Australia, Singapore</li>
+    <li><b>Occasion timing</b> — Shivratri, Navratri, Pitra Paksha, Shraddh, and the Kumbh snan dates</li>
+    <li><b>Search</b> — people already look for "online pooja Haridwar" and "Ganga pooja booking"</li>
+    <li><b>Word of mouth</b> — one shraddh pooja and the whole family hears about it</li>
+    <li><b>The pandit's own network</b> of yajmans</li>
+  </ul>
+</section>
+
+<!-- ============ VEDANZ ============ -->
+<section class="sl" id="s-ved-1">
+  <div class="eyebrow">ChaloKumbh · Service two</div>
+  <h2>Vedanz</h2>
+  <p class="lede">Two products. Same name, different work.</p>
+  <div class="cards c2" style="margin-top:26px">
+    <div class="card k" style="--k:var(--navy)">
+      <div class="ct">Ganga Jal</div>
+      <div class="cs">Delivered anywhere</div>
+      <p>Authentic Haridwar Ganga Jal, filled and sealed by us, couriered across India and abroad.</p>
+    </div>
+    <div class="card k" style="--k:var(--moss)">
+      <div class="ct">Drinking water</div>
+      <div class="cs">Sold at the ghats</div>
+      <p>Packaged drinking water under the Vedanz name, sold where the pilgrims actually are.</p>
+    </div>
+  </div>
+  <div class="note calm"><p>Ganga Jal goes to people who are <b>not</b> in Haridwar. Drinking water is sold to people who <b>are</b>.</p></div>
+</section>
+
+<section class="sl" id="s-ved-2">
+  <div class="eyebrow">Vedanz · Ganga Jal</div>
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li>Order comes on the website, or goes along with an Online Pooja booking</li>
+    <li>We fill and seal the bottle at Haridwar</li>
+    <li>We pack it so it survives transport</li>
+    <li>We courier it to the address</li>
+    <li>For abroad, it travels with the pooja prasad in the same parcel</li>
+  </ol>
+  <div class="note"><p><b>Why it fits us.</b> Same devotee as Online Pooja. Same trust. Same parcel. We are not finding a new customer — we are serving the one we already have.</p></div>
+</section>
+
+<section class="sl" id="s-ved-3">
+  <div class="eyebrow">Vedanz · Drinking water</div>
+  <h2>Three ways to do it</h2>
+  <div class="cards c3">
+    <div class="card k" style="--k:var(--moss)">
+      <div class="ct">Way 1</div>
+      <div class="cs">Someone else's plant, our label</div>
+      <ul class="b plain">
+        <li>An existing plant makes the water</li>
+        <li>They print Vedanz on the bottle</li>
+        <li><b>They hold the licences, not us</b></li>
+        <li>Fastest to start</li>
+        <li>We learn if it sells before spending big</li>
+      </ul>
+    </div>
+    <div class="card k" style="--k:var(--sand)">
+      <div class="ct">Way 2</div>
+      <div class="cs">Our own plant</div>
+      <ul class="b plain">
+        <li>We build our own bottling unit</li>
+        <li>BIS licence is compulsory — nobody can sell packaged water without it</li>
+        <li>FSSAI, trade licence, pollution clearance also ours</li>
+        <li>Both licence numbers must be printed on every bottle</li>
+        <li>Takes several months before the first bottle sells</li>
+        <li>Full control, best long term</li>
+      </ul>
+    </div>
+    <div class="card k" style="--k:var(--ink3)">
+      <div class="ct">Way 3</div>
+      <div class="cs">Pure trading</div>
+      <ul class="b plain">
+        <li>Buy someone else's brand, sell it at the ghats</li>
+        <li>No label, no licence of our own</li>
+        <li>Easiest — but we build nothing that is ours</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note">
+    <p><b>Suggestion: start with Way 1.</b> Vedanz bottles reach pilgrims quickly, we learn what sells, and we build the name. If it works, we build our own plant later — with real experience behind the decision instead of a guess.</p>
+  </div>
+</section>
+
+<section class="sl" id="s-ved-4">
+  <div class="eyebrow">Vedanz</div>
+  <h2>How we get customers</h2>
+  <div class="cards c2">
+    <div class="card"><div class="cs">Ganga Jal</div>
+      <ul class="b plain">
+        <li>Goes with every Online Pooja automatically</li>
+        <li>Search — people look for Ganga Jal delivery</li>
+        <li>Festival timing — Shivratri, Kanwar, Navratri</li>
+        <li>Gifting — people send it to relatives</li>
+      </ul></div>
+    <div class="card"><div class="cs">Water at the ghats</div>
+      <ul class="b plain">
+        <li>Stalls and carts at the busy ghats</li>
+        <li>Shops and tea stalls near the ghats</li>
+        <li>Supply to hotels and dharamshalas for their rooms</li>
+        <li>Bulk to tent cities during Kumbh</li>
+        <li><b>Our own cabs</b> carry Vedanz for passengers</li>
+        <li><b>Our own USJ Stays hotels</b> stock Vedanz</li>
+      </ul></div>
+  </div>
+  <div class="note calm"><p>For Ganga Jal the customer is online. For water at the ghats, the customer is standing in front of us — so it is about being in the right place, not about ads.</p></div>
+</section>
+
+<!-- ============ DOON TRAVELLERS ============ -->
+<section class="sl" id="s-doon-1">
+  <div class="eyebrow">ChaloKumbh · Service three</div>
+  <h2>Doon Travellers <span class="chip live" style="vertical-align:middle;margin-left:8px">Running</span></h2>
+  <p class="lede">This one is not an idea. It is already working — real cabs, real drivers, real bookings, already linked with ChaloKumbh.</p>
+  <div class="note"><p><b>This is our proof.</b> It shows we can actually run a service, not just plan one.</p></div>
+</section>
+
+<section class="sl" id="s-doon-2">
+  <div class="eyebrow">Doon Travellers</div>
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li>Customer calls, WhatsApps, or books on the website</li>
+    <li>We confirm the vehicle and the time</li>
+    <li>Our partner operator sends the cab and driver</li>
+    <li>Customer travels</li>
+    <li>We handle the booking and the customer — the operator handles the vehicle</li>
+  </ol>
+  <div class="note calm"><p>We do not buy vehicles. We partner with operators who already have them.</p></div>
+</section>
+
+<section class="sl" id="s-doon-3">
+  <div class="eyebrow">Doon Travellers</div>
+  <h2>Where it can grow</h2>
+  <div class="cards c2">
+    <div class="card"><div class="cs">Doing now</div>
+      <ul class="b plain"><li>Haridwar and Rishikesh pickups and drops</li><li>Local sightseeing</li></ul></div>
+    <div class="card"><div class="cs">Can add</div>
+      <ul class="b plain">
+        <li><b>Char Dham Yatra</b> — Kedarnath, Badrinath, Gangotri, Yamunotri</li>
+        <li>Mussoorie, Dehradun, Nainital</li>
+        <li>Jim Corbett, Auli</li>
+        <li>Airport and railway station transfers</li>
+        <li>Kumbh — station to hotel to ghat</li>
+      </ul></div>
+  </div>
+  <h3 style="margin-top:30px">What we need</h3>
+  <ul class="b">
+    <li>More partner operators, so we never have to say no to a booking</li>
+    <li>Someone to answer calls and manage bookings</li>
+    <li>Packages listed properly on the website</li>
+  </ul>
+</section>
+
+<section class="sl" id="s-doon-4">
+  <div class="eyebrow">Doon Travellers</div>
+  <h2>How we get customers</h2>
+  <ul class="b">
+    <li><b>Google Maps and Google Business Profile</b> — the biggest one for cabs. When someone lands in Haridwar and searches "cab near me", we should be there</li>
+    <li><b>Google search</b> — "Haridwar to Rishikesh taxi", "Char Dham package"</li>
+    <li><b>Ads</b> to people planning Uttarakhand trips</li>
+    <li><b>Hotels refer guests to us</b> — especially our own USJ Stays hotels</li>
+    <li><b>Travel agents</b> and tour operators</li>
+    <li><b>Repeat customers</b> — Char Dham families come back</li>
+    <li><b>Phone, WhatsApp, word of mouth</b> — already working today</li>
+  </ul>
+</section>
+
+<!-- ============ USJ STAYS ============ -->
+<section class="sl" id="s-stays-1">
+  <div class="eyebrow">ChaloKumbh · Service four</div>
+  <h2>USJ Stays</h2>
+  <p class="lede">We do not own hotels. Hotels list their rooms with us, we bring them customers, and we take a share.</p>
+  <p>The same idea as OYO, Goibibo or Airbnb — but focused only on Kumbh regions.</p>
+  <div class="note">
+    <p><b>Why we can do this.</b> The big platforms charge hotels a lot, and small Haridwar hotels and dharamshalas are not happy about it. We can offer them a better deal because we are small and local.</p>
+    <p>We are not trying to beat MakeMyTrip across India. <b>We only want to own Haridwar and the Kumbh regions.</b></p>
+  </div>
+</section>
+
+<section class="sl" id="s-stays-2">
+  <div class="eyebrow">USJ Stays</div>
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li>We visit hotels, dharamshalas and guest houses in Haridwar</li>
+    <li>They agree to list their rooms with us</li>
+    <li>We put their rooms on our website with photos and details</li>
+    <li>A pilgrim books through ChaloKumbh</li>
+    <li>The hotel gets the guest, we take our share</li>
+    <li>We handle the booking and the customer support</li>
+  </ol>
+</section>
+
+<section class="sl" id="s-stays-3">
+  <div class="eyebrow">USJ Stays</div>
+  <h2>What we need</h2>
+  <ul class="b">
+    <li><b>Someone in Haridwar</b> signing up hotels one by one. This is a feet-on-ground job, not a website job</li>
+    <li>Booking system on the website</li>
+    <li>Simple agreement paperwork with each hotel</li>
+    <li>Someone to handle bookings and customer calls</li>
+  </ul>
+  <div class="note">
+    <p><b>The timing point.</b> During Ardh Kumbh, rooms in Haridwar will be almost impossible to find. If we tie up hotels <b>before</b> the rush, we will be holding rooms that everyone else needs.</p>
+    <p>And Kumbh comes back again. Whatever name we build now, we keep for the next one.</p>
+  </div>
+</section>
+
+<section class="sl" id="s-stays-4">
+  <div class="eyebrow">USJ Stays</div>
+  <h2>How we get customers</h2>
+  <p class="lede" style="margin-bottom:22px">This one has two sides. Both need work.</p>
+  <div class="cards c2">
+    <div class="card k" style="--k:var(--navy)"><div class="ct">Getting hotels</div>
+      <ul class="b plain">
+        <li>Someone visiting them one by one in Haridwar</li>
+        <li>A better deal than the big platforms</li>
+        <li>Start with the small ones the big platforms ignore</li>
+      </ul></div>
+    <div class="card k" style="--k:var(--moss)"><div class="ct">Getting guests</div>
+      <ul class="b plain">
+        <li>Our own pooja and cab customers</li>
+        <li>Search — "hotel near Har Ki Pauri", "dharamshala Haridwar"</li>
+        <li>Ads before and during Kumbh</li>
+        <li>Our drivers mention we have rooms</li>
+      </ul></div>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section class="sl" id="s-ck-join">
+  <div class="eyebrow">ChaloKumbh</div>
+  <h2>One customer. Five earnings.</h2>
+  <ul class="journey">
+    <li><b>Plans a Haridwar trip</b><em>Books a cab — Doon Travellers</em></li>
+    <li><b>Needs a room</b><em>USJ Stays</em></li>
+    <li><b>Wants a pooja at the ghat</b><em>Online Pooja</em></li>
+    <li><b>Buys water while walking the ghats</b><em>Vedanz</em></li>
+    <li><b>Takes Ganga Jal home</b><em>Vedanz</em></li>
+    <li><b>Months later, wants a shraddh pooja</b><em>Online Pooja again — live, from home</em></li>
+  </ul>
+  <div class="note">
+    <p><b>We spend on marketing once. We earn from that customer many times.</b></p>
+    <p>The pooja apps only do pooja. The travel sites only do hotels. A cab company only does cabs. <b>We are the only one who can serve the whole journey.</b></p>
+  </div>
+</section>
+
+<!-- NEED -->
+<section class="sl" id="s-ck-need">
+  <div class="eyebrow">ChaloKumbh</div>
+  <h2>What all four have in common</h2>
+  <p class="lede">Every single one needs a person in Haridwar.</p>
+  <ul class="b">
+    <li>Talking to the pandits</li>
+    <li>Filling and sending Ganga Jal</li>
+    <li>Signing up hotels</li>
+    <li>Coordinating cabs</li>
+    <li>Answering customer calls</li>
+    <li>Filming the aarti and the ghats</li>
+  </ul>
+  <div class="note">
+    <p><b>Without someone on the ground in Haridwar, none of these four move.</b></p>
+    <p>The plan so far has a Content Creator in Haridwar. What these services need first is someone doing operations. At the start it may be the same person — but it is worth saying clearly.</p>
+  </div>
+</section>
+
+<!-- NEXT -->
+<section class="sl" id="s-next">
+  <div class="eyebrow">Still to come</div>
+  <h2>Next in this document</h2>
+  <div class="cards c2">
+    <div class="card k" style="--k:var(--moss)"><div class="ct">USJ Electronics</div>
+      <p style="color:var(--ink3)">Retail and bulk supply. Same five questions — what it is, how it works, what we need, why we can do it, how we get customers.</p></div>
+    <div class="card k" style="--k:var(--plum)"><div class="ct">USJ Technologies</div>
+      <p style="color:var(--ink3)">IT services, software and apps, GeM and tenders.</p></div>
+  </div>
+  <div class="note calm"><p>After all three, the last sections: <b>what is needed</b> — people, marketing, tools — and <b>the options</b>.</p></div>
+</section>
+
+</div>
+</main>
+
+<div class="pbar" id="pbar"></div>
+<div class="pctl">
+  <div class="cnt" id="cnt">01 / 01</div>
+  <div class="hint">← → arrow keys to move · Esc to go back to reading</div>
+  <div class="btns">
+    <button id="pPrev">Back</button>
+    <button id="pNext">Next</button>
+  </div>
+</div>
+
+<script>
+const body=document.body, slides=[...document.querySelectorAll('.sl')], links=[...document.querySelectorAll('.nav a')];
+const $=id=>document.getElementById(id);
+let idx=0, present=false;
+
+/* ---- mode ---- */
+function setMode(p){
+  present=p; body.classList.toggle('present',p); body.classList.toggle('read',!p);
+  $('mPres').classList.toggle('on',p); $('mRead').classList.toggle('on',!p);
+  body.classList.remove('navopen');
+  if(p){ show(idx); } else { slides.forEach(s=>s.classList.remove('cur'));
+    slides[idx] && slides[idx].scrollIntoView({behavior:'instant',block:'start'}); }
+}
+$('mPres').onclick=()=>setMode(true);
+$('mRead').onclick=()=>setMode(false);
+
+/* ---- present nav ---- */
+function show(i){
+  idx=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>s.classList.toggle('cur',k===idx));
+  $('cnt').textContent=String(idx+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
+  $('pbar').style.width=((idx+1)/slides.length*100)+'%';
+  const id=slides[idx].id;
+  links.forEach(a=>a.classList.toggle('act', a.getAttribute('href')==='#'+id));
+}
+$('pNext').onclick=()=>show(idx+1);
+$('pPrev').onclick=()=>show(idx-1);
+document.addEventListener('keydown',e=>{
+  if(!present){ if(e.key==='p'||e.key==='P') setMode(true); return; }
+  if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();show(idx+1);}
+  if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(idx-1);}
+  if(e.key==='Escape') setMode(false);
+  if(e.key==='Home') show(0);
+  if(e.key==='End') show(slides.length-1);
+});
+
+/* ---- nav clicks ---- */
+links.forEach(a=>a.addEventListener('click',e=>{
+  const id=a.getAttribute('href').slice(1);
+  const i=slides.findIndex(s=>s.id===id);
+  if(i<0) return;
+  if(present){ e.preventDefault(); show(i); }
+  else { idx=i; body.classList.remove('navopen'); }
+}));
+$('burger').onclick=()=>body.classList.toggle('navopen');
+
+/* ---- scroll spy (read mode) ---- */
+const io=new IntersectionObserver(es=>{
+  if(present) return;
+  es.forEach(en=>{ if(en.isIntersecting){
+    const id=en.target.id; idx=slides.findIndex(s=>s.id===id);
+    links.forEach(a=>a.classList.toggle('act', a.getAttribute('href')==='#'+id));
+  }});
+},{rootMargin:'-45% 0px -50% 0px'});
+slides.forEach(s=>io.observe(s));
+show(0); setMode(false);
+</script>
+</body>
+</html>

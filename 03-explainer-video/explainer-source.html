@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>USJ Group — Explainer</title>
+<style>
+:root{
+  --cream:#F0EEE6; --white:#fff;
+  --ink:#191919; --ink2:#5A5852; --ink3:#8C8985;
+  --line:#E2DFD5; --line2:#EDEAE1;
+  --clay:#CC785C; --kraft:#D4A27F; --manilla:#EBDBBC;
+  --navy:#3F5A7D; --moss:#5C7052; --plum:#7A5C7D; --sand:#8A7350;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--cream);color:var(--ink);
+ font:26px/1.55 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,sans-serif;
+ -webkit-font-smoothing:antialiased}
+
+.stage{position:relative;width:1920px;height:1080px}
+.sc{position:absolute;left:0;right:0;top:0;height:870px;opacity:0;transition:opacity .55s ease;
+ display:flex;flex-direction:column;align-items:center;justify-content:center;padding:70px 130px}
+.sc.on{opacity:1}
+
+/* caption bar */
+.capbar{position:absolute;left:0;right:0;bottom:0;height:210px;border-top:1px solid var(--line);
+ display:flex;align-items:center;padding:0 130px}
+.cap{font-family:ui-serif,Georgia,serif;font-size:37px;line-height:1.34;letter-spacing:-.015em;
+ color:var(--ink);max-width:1450px;opacity:0;transform:translateY(10px);transition:opacity .45s ease,transform .45s ease}
+.cap.on{opacity:1;transform:none}
+.bar{position:absolute;left:0;bottom:0;height:5px;background:var(--clay);width:0;z-index:9}
+
+/* headline inside scenes */
+.kick{font-family:ui-serif,Georgia,serif;font-size:20px;letter-spacing:.24em;text-transform:uppercase;
+ color:var(--clay);font-style:italic;margin-bottom:34px;opacity:0;transition:opacity .5s ease}
+.sc.on .kick{opacity:1;transition-delay:.15s}
+
+/* generic pop element */
+.p{opacity:0;transform:translateY(20px) scale(.97);transition:opacity .6s cubic-bezier(.2,.7,.3,1),transform .6s cubic-bezier(.2,.7,.3,1)}
+.p.go{opacity:1;transform:none}
+
+/* business cards */
+.biz{display:flex;gap:34px;justify-content:center;align-items:stretch}
+.bcard{width:340px;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:34px;position:relative}
+.bcard:before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:var(--k);border-radius:10px 10px 0 0}
+.bcard .n{font-family:ui-serif,Georgia,serif;font-size:38px;color:var(--k);line-height:1.1}
+.bcard .d{font-family:ui-monospace,Menlo,monospace;font-size:20px;color:var(--ink3);margin-top:14px;word-break:break-all}
+.bcard .l{font-size:21px;color:var(--ink2);margin-top:16px;padding-top:14px;border-top:1px solid var(--line2)}
+
+/* parent */
+.par{width:430px;background:var(--white);border:2px solid var(--clay);border-radius:10px;padding:28px;text-align:center;margin-bottom:0}
+.par b{font-family:ui-serif,Georgia,serif;font-size:38px;font-weight:400;display:block}
+.par span{font-family:ui-monospace,Menlo,monospace;font-size:22px;color:var(--clay);display:block;margin-top:8px}
+svg.link{display:block}
+svg.link path{fill:none;stroke:var(--kraft);stroke-width:2.5;
+ stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset 1s ease}
+svg.link.draw path{stroke-dashoffset:0}
+
+/* rows (domains / mail) */
+.rows{width:1200px}
+.row{display:grid;grid-template-columns:1fr 210px;align-items:center;gap:30px;
+ padding:20px 26px;background:var(--white);border:1px solid var(--line);border-left:5px solid var(--k);
+ border-radius:8px;margin-bottom:14px}
+.row .rn{font-family:ui-monospace,Menlo,monospace;font-size:26px;color:var(--ink)}
+.row .rv{font-family:ui-serif,Georgia,serif;font-size:34px;text-align:right;font-variant-numeric:tabular-nums}
+.sumline{display:grid;grid-template-columns:1fr 210px;gap:30px;padding:22px 26px 0;margin-top:10px;
+ border-top:2px solid var(--ink);align-items:baseline}
+.sumline .sl{font-size:26px;color:var(--ink3);letter-spacing:.1em;text-transform:uppercase}
+.sumline .sv{font-family:ui-serif,Georgia,serif;font-size:56px;text-align:right;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+
+/* social */
+.socrow{display:flex;gap:26px;justify-content:center}
+.scard{width:330px;background:var(--white);border:1px solid var(--line);border-top:5px solid var(--k);
+ border-radius:10px;padding:28px}
+.scard .t{font-family:ui-serif,Georgia,serif;font-size:30px;color:var(--k);margin-bottom:20px}
+.icons{display:flex;gap:18px}
+.ic{width:44px;height:44px;opacity:0;transform:scale(.5);transition:opacity .35s ease,transform .35s cubic-bezier(.3,1.4,.5,1)}
+.ic.go{opacity:1;transform:none}
+.ic svg{width:100%;height:100%;display:block}
+.lin{margin-top:26px;background:var(--manilla);border:1px solid var(--kraft);border-radius:10px;
+ padding:22px 28px;display:flex;gap:20px;align-items:center;width:1050px}
+.lin b{font-family:ui-serif,Georgia,serif;font-size:30px;font-weight:400;color:#5A4A28}
+.lin span{font-size:22px;color:#6B5427;display:block;margin-top:2px}
+
+/* maths */
+.maths{display:flex;align-items:baseline;gap:34px;justify-content:center;flex-wrap:wrap}
+.mnum{text-align:center}
+.mnum b{font-family:ui-serif,Georgia,serif;font-size:96px;font-weight:400;letter-spacing:-.035em;
+ font-variant-numeric:tabular-nums;display:block;line-height:1}
+.mnum span{display:block;font-size:20px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-top:14px}
+.op{font-family:ui-serif,Georgia,serif;font-size:70px;color:var(--kraft)}
+.mnum.big b{font-size:150px}
+.permo{margin-top:44px;font-size:34px;color:var(--ink2)}
+.permo b{font-family:ui-serif,Georgia,serif;font-size:52px;font-weight:400}
+
+/* next steps timeline */
+.tl{width:1560px}
+.tstep{display:grid;grid-template-columns:88px 1fr;gap:30px;align-items:baseline;padding:10px 0;
+ border-bottom:1px solid var(--line);opacity:.18;transition:opacity .45s ease}
+.tstep.on{opacity:1}
+.tstep .tn{font-family:ui-serif,Georgia,serif;font-size:30px;color:var(--clay)}
+.tstep .tt{font-size:29px;color:var(--ink)}
+.tstep .tt em{font-style:normal;color:var(--ink3);font-size:22px;display:block;margin-top:1px}
+
+/* focus */
+.focus{display:flex;gap:0;border-top:2px solid var(--ink);width:1500px}
+.focus>div{flex:1;padding:46px 44px 0 0}
+.focus>div+div{border-left:1px solid var(--line);padding-left:44px}
+.focus span{display:block;font-size:19px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3);margin-bottom:18px}
+.focus b{font-family:ui-serif,Georgia,serif;font-size:62px;font-weight:400;letter-spacing:-.025em}
+
+/* close */
+.mark{width:80px;height:80px;border-radius:50%;background:var(--clay);margin:0 auto 46px}
+.close h1{font-family:ui-serif,Georgia,serif;font-size:104px;font-weight:400;letter-spacing:-.03em;text-align:center;line-height:1.1}
+.close p{text-align:center;color:var(--ink3);font-size:28px;margin-top:34px}
+</style>
+</head>
+<body>
+<div class="stage">
+
+<!-- 0 : three businesses -->
+<section class="sc" id="s0">
+  <div class="kick">The businesses</div>
+  <div class="biz">
+    <div class="bcard p" data-p="0" style="--k:var(--navy)"><div class="n">ChaloKumbh</div>
+      <div class="d">chalokumbh.com</div><div class="l">Online Pooja · Vedanz · Doon Travelers · USJ Stays</div></div>
+    <div class="bcard p" data-p="1" style="--k:var(--moss)"><div class="n">USJ Electronics</div>
+      <div class="d">usjelectronics.com</div><div class="l">Retail and bulk supply</div></div>
+    <div class="bcard p" data-p="2" style="--k:var(--plum)"><div class="n">USJ Technologies</div>
+      <div class="d">usjtechnologies.com</div><div class="l">IT services · Software · GeM</div></div>
+  </div>
+</section>
+
+<!-- 1 : parent connects -->
+<section class="sc" id="s1">
+  <div class="kick">One roof</div>
+  <div class="par p" data-p="0"><b>USJ GROUP</b><span>usjgroup.in</span></div>
+  <svg class="link" id="lk" width="1200" height="120" viewBox="0 0 1200 120" style="--len:620">
+    <path d="M600 0 V40 H226 V120"/><path d="M600 0 V40 H600 V120"/><path d="M600 0 V40 H974 V120"/>
+  </svg>
+  <div class="biz">
+    <div class="bcard p" data-p="1" style="--k:var(--navy)"><div class="n">ChaloKumbh</div><div class="d">chalokumbh.com</div></div>
+    <div class="bcard p" data-p="1" style="--k:var(--moss)"><div class="n">USJ Electronics</div><div class="d">usjelectronics.com</div></div>
+    <div class="bcard p" data-p="1" style="--k:var(--plum)"><div class="n">USJ Technologies</div><div class="d">usjtechnologies.com</div></div>
+  </div>
+</section>
+
+<!-- 2 : domains -->
+<section class="sc" id="s2">
+  <div class="kick">Domains</div>
+  <div class="rows">
+    <div class="row p" data-p="0" style="--k:var(--clay)"><div class="rn">usjgroup.in</div><div class="rv">647.82</div></div>
+    <div class="row p" data-p="1" style="--k:var(--navy)"><div class="rn">chalokumbh.com</div><div class="rv">1,081.40</div></div>
+    <div class="row p" data-p="2" style="--k:var(--moss)"><div class="rn">usjelectronics.com</div><div class="rv">1,081.40</div></div>
+    <div class="row p" data-p="3" style="--k:var(--plum)"><div class="rn">usjtechnologies.com</div><div class="rv">1,081.40</div></div>
+    <div class="sumline p" data-p="4"><div class="sl">Per year, all four</div><div class="sv" id="dsum">0</div></div>
+  </div>
+</section>
+
+<!-- 3 : email -->
+<section class="sc" id="s3">
+  <div class="kick">Email</div>
+  <div class="rows">
+    <div class="row p" data-p="0" style="--k:var(--navy)"><div class="rn">chalokumbh@usjgroup.in</div><div class="rv">₹99 / mo</div></div>
+    <div class="row p" data-p="1" style="--k:var(--moss)"><div class="rn">usjelectronics@usjgroup.in</div><div class="rv">₹99 / mo</div></div>
+    <div class="row p" data-p="2" style="--k:var(--plum)"><div class="rn">usjtechnologies@usjgroup.in</div><div class="rv">₹99 / mo</div></div>
+    <div class="sumline p" data-p="3"><div class="sl">Per year, with GST</div><div class="sv" id="esum">0</div></div>
+  </div>
+</section>
+
+<!-- 4 : social -->
+<section class="sc" id="s4">
+  <div class="kick">Social accounts</div>
+  <div class="socrow">
+    <div class="scard p" data-p="0" style="--k:var(--navy)"><div class="t">ChaloKumbh</div><div class="icons" data-icons></div></div>
+    <div class="scard p" data-p="1" style="--k:var(--moss)"><div class="t">USJ Electronics</div><div class="icons" data-icons></div></div>
+    <div class="scard p" data-p="2" style="--k:var(--plum)"><div class="t">USJ Technologies</div><div class="icons" data-icons></div></div>
+  </div>
+  <div class="lin p" data-p="3">
+    <span style="width:46px;height:46px;flex:none"><svg viewBox="0 0 24 24" width="46" height="46"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path fill="#fff" d="M7.1 9.5H4.6V19h2.5V9.5zM5.85 8.4a1.45 1.45 0 110-2.9 1.45 1.45 0 010 2.9zM19.4 19h-2.5v-4.6c0-1.1-.02-2.5-1.53-2.5-1.53 0-1.77 1.2-1.77 2.43V19H11.1V9.5h2.4v1.3h.03c.34-.63 1.15-1.3 2.37-1.3 2.53 0 3.5 1.66 3.5 3.83V19z"/></svg></span>
+    <div><b>LinkedIn — one page for the whole group</b><span>Thirteen accounts in total. None of them cost anything.</span></div>
+  </div>
+</section>
+
+<!-- 5 : total -->
+<section class="sc" id="s5">
+  <div class="kick">The whole cost</div>
+  <div class="maths">
+    <div class="mnum p" data-p="0"><b id="m1">0</b><span>Domains</span></div>
+    <div class="op p" data-p="1">+</div>
+    <div class="mnum p" data-p="1"><b id="m2">0</b><span>Email</span></div>
+    <div class="op p" data-p="2">=</div>
+    <div class="mnum big p" data-p="2"><b id="m3">0</b><span>Per year</span></div>
+  </div>
+  <div class="permo p" data-p="3">That is <b>₹675</b> a month, for everything.</div>
+</section>
+
+<!-- 6 : next steps -->
+<section class="sc" id="s6">
+  <div class="kick">What happens next</div>
+  <div class="tl">
+    <div class="tstep" data-s="0"><div class="tn">01</div><div class="tt">Buy the domains<em>Day one</em></div></div>
+    <div class="tstep" data-s="1"><div class="tn">02</div><div class="tt">Shift the e-commerce site to usjelectronics.com<em>Week one</em></div></div>
+    <div class="tstep" data-s="2"><div class="tn">03</div><div class="tt">Create the three business mailboxes<em>Week one</em></div></div>
+    <div class="tstep" data-s="3"><div class="tn">04</div><div class="tt">Open the USJ Electronics social accounts<em>Week two</em></div></div>
+    <div class="tstep" data-s="4"><div class="tn">05</div><div class="tt">Professional posts on LinkedIn<em>Week two</em></div></div>
+    <div class="tstep" data-s="5"><div class="tn">06</div><div class="tt">Regular posts on USJ Electronics channels<em>Week two</em></div></div>
+    <div class="tstep" data-s="6"><div class="tn">07</div><div class="tt">Run the ad campaigns — USB products, Online Pooja, Vedanz, Doon Travelers, reel contest<em>Week three</em></div></div>
+    <div class="tstep" data-s="7"><div class="tn">08</div><div class="tt">Post the hiring ads and hire<em>Immediately after</em></div></div>
+  </div>
+</section>
+
+<!-- 7 : hiring -->
+<section class="sc" id="s7">
+  <div class="kick">Three people to hire</div>
+  <div class="biz">
+    <div class="bcard p" data-p="0" style="--k:var(--moss)"><div class="n">Marketing<br>Specialist</div>
+      <div class="l" style="border:0;padding:0;margin-top:18px">1–2 years · Hyderabad or Uttarakhand</div></div>
+    <div class="bcard p" data-p="1" style="--k:var(--navy)"><div class="n">Content<br>Creator</div>
+      <div class="l" style="border:0;padding:0;margin-top:18px">Haridwar</div></div>
+    <div class="bcard p" data-p="2" style="--k:var(--plum)"><div class="n">Video<br>Editor</div>
+      <div class="l" style="border:0;padding:0;margin-top:18px">Hyderabad or Uttarakhand</div></div>
+  </div>
+</section>
+
+<!-- 8 : focus -->
+<section class="sc" id="s8">
+  <div class="kick">Then, full focus</div>
+  <div class="focus">
+    <div class="p" data-p="0"><span>One</span><b>Marketing</b></div>
+    <div class="p" data-p="1"><span>Two</span><b>Content creation</b></div>
+    <div class="p" data-p="2"><span>Three</span><b>Digital presence</b></div>
+  </div>
+</section>
+
+<!-- 9 : close -->
+<section class="sc close" id="s9">
+  <div class="mark p" data-p="0"></div>
+  <h1 class="p" data-p="1">One group.<br>Many businesses.</h1>
+  <p class="p" data-p="2">USJ Group · August 2026</p>
+</section>
+
+<div class="capbar"><div class="cap" id="cap"></div></div>
+<div class="bar" id="bar"></div>
+</div>
+
+<script>
+const ICONS = [
+'<svg viewBox="0 0 24 24" fill="none" stroke="#E4405F" stroke-width="1.9"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.6" cy="6.4" r="1.15" fill="#E4405F" stroke="none"/></svg>',
+'<svg viewBox="0 0 24 24"><path fill="#1877F2" d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0022 12z"/></svg>',
+'<svg viewBox="0 0 24 24"><path fill="#191919" d="M17.53 3h3.02l-6.6 7.54L21.7 21h-6.06l-4.75-6.2L5.46 21H2.44l7.05-8.06L2.6 3h6.21l4.29 5.67L17.53 3z"/></svg>',
+'<svg viewBox="0 0 24 24"><path fill="#FF0000" d="M23.5 6.9a3 3 0 00-2.1-2.1C19.5 4.3 12 4.3 12 4.3s-7.5 0-9.4.5A3 3 0 00.5 6.9C0 8.8 0 12 0 12s0 3.2.5 5.1a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1c.5-1.9.5-5.1.5-5.1s0-3.2-.5-5.1z"/><path fill="#F0EEE6" d="M9.6 15.6l6.3-3.6-6.3-3.6z"/></svg>'];
+document.querySelectorAll('[data-icons]').forEach(w=>{
+  ICONS.forEach(sv=>{ const d=document.createElement('span'); d.className='ic'; d.innerHTML=sv; w.appendChild(d); });
+});
+
+const cap=document.getElementById('cap'), bar=document.getElementById('bar');
+const S=n=>document.getElementById('s'+n);
+let jobs=[];
+const at=(t,fn)=>jobs.push([t,fn]);
+
+function say(t,text){ at(t,()=>{ cap.classList.remove('on');
+  setTimeout(()=>{ cap.textContent=text; cap.classList.add('on'); },380); }); }
+function scene(t,n){ at(t,()=>{ document.querySelectorAll('.sc').forEach(s=>s.classList.remove('on')); S(n).classList.add('on'); }); }
+function popAll(t,n,step=300){ at(t,()=>{ S(n).querySelectorAll('.p').forEach((e,k)=>
+  setTimeout(()=>e.classList.add('go'), k*step)); }); }
+function pop(t,n,group,step=260){ at(t,()=>{ S(n).querySelectorAll('[data-p="'+group+'"]').forEach((e,k)=>
+  setTimeout(()=>e.classList.add('go'), k*step)); }); }
+function count(t,id,to,dur=1300,prefix='₹'){ at(t,()=>{ const el=document.getElementById(id); const t0=performance.now();
+  (function step(now){ const p=Math.min((now-t0)/dur,1); const e=1-Math.pow(1-p,3);
+    el.textContent=prefix+Math.round(to*e).toLocaleString('en-IN');
+    if(p<1) requestAnimationFrame(step); })(performance.now()); }); }
+
+/* ---------------- TIMELINE ---------------- */
+scene(300,0);
+scene(10928,1);
+scene(21753,2);
+scene(34448,3);
+scene(45049,4);
+scene(54506,5);
+scene(67495,6);
+scene(85725,7);
+scene(95432,8);
+scene(103194,9);
+say(800,'This is a proposal for how we set up USJ Group online.');
+say(4503,'Right now we have three businesses. ChaloKumbh, USJ Electronics, and USJ Technologies.');
+say(11428,'The idea is simple. We buy one main domain. usjgroup dot in.');
+say(15167,'Everything sits under it. It would hold the group website, and all our business emails.');
+say(22253,'For this we need four domains in total. A domain is not a one time thing. We pay for it every year.');
+say(29052,'All four would come to about three thousand eight hundred and ninety two rupees a year.');
+say(34948,'Then email. Three mailboxes. One for each business. Ninety nine rupees per user per month.');
+say(41088,'With GST, that would be four thousand two hundred and six rupees a year.');
+say(45549,'We would use those same mailboxes to open every social media account.');
+say(49701,'Thirteen accounts across four platforms. None of them cost anything.');
+say(55006,'So, domains plus email.');
+say(56675,'The whole setup would run at about eight thousand and ninety eight rupees a year.');
+say(63463,'That is six hundred and seventy five rupees a month, for three businesses.');
+say(67995,'If you approve this, here is what we would do.');
+say(71336,'Buy the domains. Move the online store. Create the three mailboxes.');
+say(76344,'Then open the social accounts and start posting.');
+say(79622,'Then the ad campaigns. USB products, Online Pooja, Vedanz, Doon Travelers, and the reel contest.');
+say(86225,'And we would hire three people.');
+say(87750,'A marketing specialist, a content creator in Haridwar, and a video editor.');
+say(92537,'Post the ads early, review daily, and hire fast.');
+say(95932,'After that, the focus would be only three things.');
+say(99254,'Marketing, content creation, and digital presence.');
+say(103694,'That is the proposal. One group. Many businesses.');
+popAll(500,0,430);
+pop(11128,1,0);
+at(11828,()=>document.getElementById('lk').classList.add('draw'));
+pop(14767,1,1,300);
+pop(21953,2,0);
+pop(22273,2,1);
+pop(22593,2,2);
+pop(22913,2,3);
+pop(28652,2,4);
+count(29552,'dsum',3892,1600);
+pop(34648,3,0);
+pop(34968,3,1);
+pop(35288,3,2);
+pop(40688,3,3);
+count(41588,'esum',4206,1400);
+pop(45249,4,0);
+pop(45569,4,1);
+pop(45889,4,2);
+at(46549,()=>S(4).querySelectorAll('.ic').forEach((e,k)=>setTimeout(()=>e.classList.add('go'), k*95)));
+pop(49401,4,3);
+pop(54706,5,0);
+count(54956,'m1',3892,1100);
+pop(55606,5,1);
+count(55856,'m2',4206,1100);
+pop(56875,5,2);
+count(57225,'m3',8098,1700);
+pop(63663,5,3);
+at(69195,()=>S(6).querySelector('[data-s="0"]').classList.add('on'));
+at(71536,()=>S(6).querySelector('[data-s="1"]').classList.add('on'));
+at(73036,()=>S(6).querySelector('[data-s="2"]').classList.add('on'));
+at(74636,()=>S(6).querySelector('[data-s="3"]').classList.add('on'));
+at(76744,()=>S(6).querySelector('[data-s="4"]').classList.add('on'));
+at(78244,()=>S(6).querySelector('[data-s="5"]').classList.add('on'));
+at(80022,()=>S(6).querySelector('[data-s="6"]').classList.add('on'));
+at(83022,()=>S(6).querySelector('[data-s="7"]').classList.add('on'));
+popAll(85925,7,340);
+popAll(95632,8,430);
+popAll(103394,9,380);
+
+const TOTAL = 108172;
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    jobs.forEach(([t,fn])=>setTimeout(fn,t));
+    const t0=performance.now();
+    (function tick(now){ const p=Math.min((now-t0)/TOTAL,1); bar.style.width=(p*1920)+'px';
+      if(p<1) requestAnimationFrame(tick); })(performance.now());
+    window.__done=TOTAL;
+  },250);
+});
+</script>
+</body>
+</html>
