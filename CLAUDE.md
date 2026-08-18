@@ -132,6 +132,9 @@ https://github.com/USJ-Technologies/USJ-Business-Planning   (private)
 
 Author is `Bhanu <bhanu@usjtechnologies.com>`, set locally on the repo. Keep it that way.
 
+**One branch only — `main`.** No feature branches, no `master`. Commit straight to `main`
+and push. Do not create a branch before committing.
+
 The scope site used to be its own repo inside `04-business-scope-site/`. Its 5 commits were
 kept — `git log --follow` still tracks files across the move.
 
