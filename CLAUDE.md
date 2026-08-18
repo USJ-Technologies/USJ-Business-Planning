@@ -118,9 +118,25 @@ The three options to present:
 | `01-business-setup/` | Domain + email + social costs. **Approved-style doc.** ₹8,098/yr, ₹675/mo (approx). Google Workspace **Base** ₹99/user/mo × 3. |
 | `02-whats-next/` | The 8-step plan + 3 hiring roles, for after sir approves the setup |
 | `03-explainer-video/` | The 108s explainer video, its HTML source, the teleprompter, and the narration script |
-| `04-business-scope-site/` | **The main active work.** Git repo. The scope website. |
+| `04-business-scope-site/` | **The main active work.** The scope website. |
 | `assets/` | USJ logo, full-res and web-sized |
 | `archive/` | Earlier drafts. Reference only. |
+
+## Git
+
+The **whole** Business Planning folder is one repo. Branch `main`.
+
+```
+https://github.com/USJ-Technologies/USJ-Business-Planning   (private)
+```
+
+Author is `Bhanu <bhanu@usjtechnologies.com>`, set locally on the repo. Keep it that way.
+
+The scope site used to be its own repo inside `04-business-scope-site/`. Its 5 commits were
+kept — `git log --follow` still tracks files across the move.
+
+**Keep this repo private.** It holds internal strategy, and the salary / role /
+responsibility sections are still to be added.
 
 ## The scope website (`04-business-scope-site/`)
 
@@ -136,18 +152,6 @@ Vedanz ×4, Doon Travellers ×4, USJ Stays ×4, One customer five earnings, What
 
 New sections go in as `<section class="sl" id="s-...">` inside `.wrap`, and get a matching
 link in `<nav class="nav">`. Nothing else needs changing — the JS picks up slides automatically.
-
-### Git
-
-Local repo, 5 commits, author `Bhanu <bhanu@usjtechnologies.com>`. **No remote set yet.**
-
-To push to GitHub:
-
-```bash
-cd "04-business-scope-site"
-git remote add origin git@github.com:usjtechnologies/usj-group.git
-git push -u origin main
-```
 
 ### Hosting
 
