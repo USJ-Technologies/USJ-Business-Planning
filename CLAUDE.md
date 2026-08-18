@@ -163,8 +163,26 @@ Two modes, toggled top-right:
 Vedanz ×4, Doon Travellers ×4, USJ Stays ×4, One customer five earnings, What ChaloKumbh needs)
 → Coming next.
 
-New sections go in as `<section class="sl" id="s-...">` inside `.wrap`, and get a matching
-link in `<nav class="nav">`. Nothing else needs changing — the JS picks up slides automatically.
+New sections go in as `<section class="sl" id="s-...">` inside `.wrap`. The JS picks up
+slides automatically — nothing to register.
+
+The sidebar is collapsible. A new business is a group:
+
+```html
+<details class="grp">
+  <summary>USJ Electronics <i class="chv"></i></summary>
+  <div class="bd">
+    <a href="#s-elec-1">What it is</a>
+    <details class="svc">                        <!-- optional second level -->
+      <summary>Retail <i class="chv"></i></summary>
+      <div class="bd"><a href="#s-elec-retail-1">How it works</a></div>
+    </details>
+  </div>
+</details>
+```
+
+Every link must sit inside a `.bd`, and every `<summary>` needs the `<i class="chv"></i>`
+or it gets no chevron. Groups open themselves when the current slide is inside them.
 
 ### Hosting
 
