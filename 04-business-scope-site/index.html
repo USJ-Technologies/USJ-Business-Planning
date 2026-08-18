@@ -112,6 +112,9 @@ ul.b li b{color:var(--ink);font-weight:600}
 .cards{display:grid;gap:14px;margin-top:8px}
 .cards.c2{grid-template-columns:1fr 1fr}
 .cards.c3{grid-template-columns:repeat(3,1fr)}
+/* let a crowded card row use the empty space beside the text column */
+.cards.bleed{--bleed:clamp(0px, calc((100vw - var(--nav) - 820px)/2 - 14px), 110px);
+ margin-left:calc(-1 * var(--bleed));margin-right:calc(-1 * var(--bleed))}
 .card{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:20px;position:relative}
 .card.k:before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--k);border-radius:8px 8px 0 0}
 .card .ct{font-family:ui-serif,Georgia,serif;font-size:21px;font-weight:400;margin-bottom:8px;color:var(--k,var(--ink))}
@@ -141,12 +144,12 @@ td b{color:var(--ink);font-weight:600}
 
 /* journey */
 .journey{counter-reset:j;margin-top:8px}
-.journey li{counter-increment:j;list-style:none;display:grid;grid-template-columns:44px 1fr;gap:18px;
+.journey li{counter-increment:j;list-style:none;display:grid;grid-template-columns:44px 1fr;gap:0 18px;
  padding:13px 0;border-bottom:1px solid var(--line2);align-items:baseline}
 .journey li:last-child{border-bottom:0}
 .journey li:before{content:counter(j);font-family:ui-serif,Georgia,serif;font-size:20px;color:var(--clay)}
 .journey li b{color:var(--ink)}
-.journey li em{font-style:normal;color:var(--ink3);display:block;font-size:14.5px;margin-top:2px}
+.journey li em{grid-column:2;font-style:normal;color:var(--ink3);font-size:14.5px;margin-top:2px}
 
 /* ---------- PRESENT MODE ---------- */
 body.present{overflow:hidden}
@@ -165,6 +168,7 @@ body.present p,body.present ul.b li,body.present ol.steps li,body.present td{fon
 body.present ol.steps li{padding:13px 0 13px 62px}
 body.present ol.steps li:before{width:36px;height:36px;font-size:16px}
 body.present .eyebrow{font-size:15px;margin-bottom:18px}
+body.present .cards.bleed{margin-left:0;margin-right:0}
 body.present .card .ct{font-size:clamp(18px,1.8vw,25px)}
 body.present .card p,body.present .card li{font-size:clamp(14px,1.35vw,18px)}
 body.present table{font-size:clamp(14px,1.4vw,19px)}
@@ -457,7 +461,7 @@ body.present .pctl{display:flex}
 <section class="sl" id="s-ved-3">
   <div class="eyebrow">Vedanz · Drinking water</div>
   <h2>Three ways to do it</h2>
-  <div class="cards c3">
+  <div class="cards c3 bleed">
     <div class="card k" style="--k:var(--moss)">
       <div class="ct">Way 1</div>
       <div class="cs">Someone else's plant, our label</div>
